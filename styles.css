@@ -26,9 +26,9 @@
     color: white;
   }
 body {
-    background: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
     font: 18px Arial, sans-serif;
 }
 h1 {
-    color: orange;
+    color: rgb(0, 0, 0);
 }
