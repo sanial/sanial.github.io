@@ -26,8 +26,6 @@
     background-color: #0462aa;
     color: white;
   } */
-
-  
   nav.navbar {
   /* Use a flex-box layout to put the menu and icons side by side */
   display: flex;
@@ -38,7 +36,7 @@
   height:60px;
   width: 100%;
   text-align: center;
-  /* border: 0.5px solid; */
+  /* border: 1px solid; */
 }
 
 nav.navbar .menu {
@@ -84,7 +82,7 @@ body {
 }
 
 /** SLIDESHOW **/
-.container {
+/* .container {
   align-items: center;
   display: flex;
   margin: 0 auto;
@@ -96,33 +94,4 @@ body {
   .container {
     flex-direction: column;
   }
-}
-
-.nbar {
-  width: 100%;
-  background-color: #555;
-  overflow: auto;
-}
-
-.nbar a {
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.nbar a:hover {
-  background-color: #000;
-}
-
-.active {
-  background-color: #04AA6D;
-}
-
-@media screen and (max-width: 500px) {
-  .nbar a {
-    float: none;
-    display: block;
-  }
-}
+} */
