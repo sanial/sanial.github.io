@@ -26,6 +26,13 @@
     background-color: #0462aa;
     color: white;
   } */
+  header {
+    position: sticky;
+    top:0;
+    padding:40px;
+    background: lightblue;
+    text-align: center;
+  }
   nav.navbar {
   /* Use a flex-box layout to put the menu and icons side by side */
   display: flex;
