@@ -1,57 +1,97 @@
 /* Add a black background color to the top navigation */
 
-.topnav {
+/* .topnav {
     background-color: rgb(255, 255, 255);
     overflow: hidden;
-  }
+  } */
   
   /* Style the links inside the navigation bar */
-  .topnav a {
+  /* .topnav a {
     float: right;
     color: #000000;
     text-align: center;
     padding: 25px 16px;
     text-decoration: none;
     font-size: 17px;
-  }
+  } */
   
   /* Change the color of links on hover */
-  .topnav a:hover {
+  /* .topnav a:hover {
     background-color: rgb(111, 111, 111);
     color: black;
-  }
+  } */
   
   /* Add a color to the active/current link */
-  .topnav a.active {
+  /* .topnav a.active {
     background-color: #0462aa;
     color: white;
-  }
+  } */
+  nav.navbar {
+  /* Use a flex-box layout to put the menu and icons side by side */
+  display: flex;
+  /* Centre the flex children (the ULs) vertically in the flex box */
+  align-items: center;
+
+  background-color:#ffffff;
+  height:60px;
+  width: 100%;
+  text-align: center;
+  /* border: 0.5px solid; */
+}
+
+nav.navbar .menu {
+  /* Removes standard list styling. Hide bullets, remove padding. */
+  list-style: none;
+  padding: 0;
+  /* Make menu expand to fill most of the space in the menubar */
+  flex: 1;
+}
+
+nav.navbar .menu li {
+  /* Makes menu list items display horizontally rather than vertically */
+  display: inline;
+}
+
+/* Add some spacing between the menu items */
+nav.navbar .menu li:not(:first-child) {
+  padding-left: 1em;
+}
+
+nav.navbar .social-icons {
+  /* Removes standard list styling. Hide bullets, remove padding. */
+  list-style: none;
+  padding: 0;
+}
+
+nav.navbar .social-icons li {
+  /* Makes social list items display horizontally rather than vertically */
+  display: inline;
+}
+
+nav.navbar .social-icons svg {
+  width: 30px;
+  height: 30px;
+}
+
 body {
     background: rgb(255, 255, 255);
     font: 18px Arial, sans-serif;
-}
-h1 {
+} */
+ h1 {
     color: rgb(255, 255, 255);
 }
 
-/*Add slideshow*/
-.slideshow {
-  position: relative;
-  height: 100px;
-  width: 100px;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+/** SLIDESHOW **/
+.container {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  max-width: 960px;
   width: 100%;
-  display: none;
 }
 
-#slide1 {
-  display: block;
+@media all and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
 }
-
-
