@@ -26,11 +26,11 @@
     background-color: #0462aa;
     color: white;
   } */
-  header {
+  .header {
     position: sticky;
     top:0;
     padding:40px;
-    background: lightblue;
+    background: rgb(255, 255, 255);
     text-align: center;
   }
   nav.navbar {
