@@ -23,10 +23,12 @@ body {
         padding-right: 1.5rem;
 
         /** Icons Classes **/
-        /** -- Open Iconic, Font Awesome -- **/
+        /** -- Open Iconic, Font Awesome, Flat Icon -- **/
         [class~=oi],
         [class~=fa],
+        
         /** -- Since Material, Iconic and Typicons use ::before -- **/
+        [class~=fi]::before,
         [class~=typcn]::before,
         [class~=mdi]::before,
         [class~=icon]::before {
@@ -50,10 +52,12 @@ body {
 
             [class~=oi],
             [class~=fa],
+            
             /** -- Since Material, Iconic and Typicons use ::before -- **/
+            [class~=fi]::before,
             [class~=mdi]::before,
             [class~=icon]::before,
-            [class~="typcn"]::before {
+            [class~=typcn]::before {
                 opacity: 1;
                 transform: translateX(0px) scale(.75);
             }

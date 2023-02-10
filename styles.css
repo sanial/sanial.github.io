@@ -32,6 +32,7 @@
     padding:40px;
     background: rgb(255, 255, 255);
     text-align: center;
+
   }
   .icon{
     font-size: 100px;
@@ -134,9 +135,11 @@ body {
   /** Flatted button **/
 }
 /** Icons Classes **/
-/** -- Open Iconic and Font Awesome -- **/
-.btn-iconed [class~=oi], .btn-iconed [class~=fa],
+/** -- Open Iconic and Font Awesome, Flat Icon -- **/
+.btn-iconed [class~=oi], .btn-iconed [class~=fa], 
 /** -- Since Material and Iconic used ::before -- **/
+.btn-iconed [class~=fi]::before,
+.btn-iconed [class~=fi]::before,
 .btn-iconed [class~=mdi]::before,
 .btn-iconed [class~=icon]::before {
  opacity: 0;
@@ -157,8 +160,8 @@ body {
   transition: .20s ease-in-out;
 }
 /** -- Icons on Hover properties -- **/
-.btn-iconed:hover [class~=oi], .btn-iconed:hover [class~=fa],
-.btn-iconed:hover [class~=mdi]::before, .btn-iconed:hover [class~=icon]::before {
+.btn-iconed:hover [class~=oi], .btn-iconed:hover [class~=fa], 
+.btn-iconed:hover [class~=mdi]::before, .btn-iconed:hover [class~=icon]::before, .btn-iconed:hover [class~=fi]::before{
   opacity: 1;
   -webkit-transform: translateX(0px) scale(0.75);
   transform: translateX(0px) scale(0.75);
