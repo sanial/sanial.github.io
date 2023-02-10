@@ -32,13 +32,15 @@
     padding:40px;
     background: rgb(255, 255, 255);
     text-align: center;
+    /* font-family: Charter, Georgia, serif; */
+    /* font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; */
 
   }
-  .icon{
+  /* .icon{
     font-size: 100px;
     color: white;
-  }
-  .button-examples{
+  } */
+  /* .button-examples{
       background-color:#ffffff;
       margin-top:50px;
       height:130px;
@@ -46,7 +48,7 @@
       margin-left:10px;
       font-weight:600;
       color: rgb(255, 68, 68);
-  }
+  } */
   nav.navbar {
   /* Use a flex-box layout to put the menu and icons side by side */
   display: flex;
