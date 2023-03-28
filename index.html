@@ -4,7 +4,11 @@
 
 <head>
   <meta charset="UTF-8">
+  <!-- Add Bootstrap and Bootstrap-Vue CSS to the <head> section -->
+  <!-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/> -->
   <!--bootstrap-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet">
   <!--fonts, icons-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -25,43 +29,45 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <title>Sania Latif Portfolio</title>
+  <div class="header">
+    <nav id="navbar-1" class="navbar">
+      <div id="navbar-left">
+        <a href="#default" id="logo">Sania Latif</a>
+      </div>
+      <ul class="menu">
+        <!-- <li><button role="button" class="btn btn-outline-primary btn-lg btn-iconed btn-rounded">
+          <i class="fi fi-rr-briefcase"></i> <span class="spn">Projects</span>
+      </button></li> -->
+        <!-- button classes -->
+        <button role="button" class="btn btn-outline-dark btn-iconed btn-rounded" aria-label="Home" href="#home">
+          <i class="bi bi-house"></i></i> <span class="spn">Home</span>
+        </button>
+        <button role="button" class="btn btn-outline-dark btn-iconed btn-rounded" aria-label="Projects" href="#projects">
+          <i class="fi fi-rr-apps-add"></i> <span class="spn">Projects</span>
+        </button>
+        <button role="button" class="btn btn-outline-dark btn-iconed btn-rounded" aria-label="Learning" href="#learning">
+          <i class="fi fi-rr-book-alt"></i> <span class="spn">Learning</span>
+        </button>
+        <button role="button" class="btn btn-outline-dark btn-iconed btn-rounded" aria-label="About Me" href="#aboutme">
+          <i class="fi fi-rr-comment"></i> <span class="spn">About</span>
+        </button>
+
+
+        <!-- <li><i class="fi fi-rr-briefcase"></i></li>
+        <li><button class = "button-examples">
+          <i class="fi fi-rr-briefcase" aria-hidden="true"></i>
+          <p>
+            Projects
+          </p>
+      </button></li> -->
+        
+      </ul>
+    </nav>
+  </div>
+
 </head>
 
-<div class="header">
-  <nav id="navbar-1" class="navbar">
-    <div id="navbar-left">
-      <a href="#default" id="logo">Sania Latif</a>
-    </div>
-    <ul class="menu">
-      <!-- <li><button role="button" class="btn btn-outline-primary btn-lg btn-iconed btn-rounded">
-        <i class="fi fi-rr-briefcase"></i> <span class="spn">Projects</span>
-     </button></li> -->
-      <!-- button classes -->
-      <button role="button" class="btn btn-outline-dark btn-iconed btn-rounded" aria-label="Home" href="#home">
-        <i class="fi fi-rr-home"></i> <span class="spn">Home</span>
-      </button>
-      <button role="button" class="btn btn-outline-dark btn-iconed btn-rounded" aria-label="Projects" href="#projects">
-        <i class="fi fi-rr-apps-add"></i> <span class="spn">Projects</span>
-      </button>
-      <button role="button" class="btn btn-outline-dark btn-iconed btn-rounded" aria-label="Learning" href="#learning">
-        <i class="fi fi-rr-book-alt"></i> <span class="spn">Learning</span>
-      </button>
-      <button role="button" class="btn btn-outline-dark btn-iconed btn-rounded" aria-label="About Me" href="#aboutme">
-        <i class="fi fi-rr-comment"></i> <span class="spn">About</span>
-      </button>
 
-
-      <!-- <li><i class="fi fi-rr-briefcase"></i></li>
-      <li><button class = "button-examples">
-        <i class="fi fi-rr-briefcase" aria-hidden="true"></i>
-        <p>
-          Projects
-        </p>
-    </button></li> -->
-      
-    </ul>
-  </nav>
-</div>
 
 <body>
   <div id="intro" class="container">
@@ -138,6 +144,9 @@
             </svg> -->
 
 
+  <!-- Add Vue and BootstrapVue scripts just before the closing </body> tag -->
+  <!-- <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script> -->
 
 
 </body>
