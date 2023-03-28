@@ -28,6 +28,7 @@ body {
         [class~=fa],
         
         /** -- Since Material, Iconic and Typicons use ::before -- **/
+        [class~=bi]::before,
         [class~=fi]::before,
         [class~=typcn]::before,
         [class~=mdi]::before,
@@ -54,6 +55,7 @@ body {
             [class~=fa],
             
             /** -- Since Material, Iconic and Typicons use ::before -- **/
+            [class~=bi]::before,
             [class~=fi]::before,
             [class~=mdi]::before,
             [class~=icon]::before,

@@ -36,6 +36,9 @@
     /* font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; */
 
   }
+  .body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
   /* .icon{
     font-size: 100px;
     color: white;
@@ -137,10 +140,10 @@ body {
   /** Flatted button **/
 }
 /** Icons Classes **/
-/** -- Open Iconic and Font Awesome, Flat Icon -- **/
+/** -- Open Iconic and Font Awesome, Flat Icon, Bootstrap Icon -- **/
 .btn-iconed [class~=oi], .btn-iconed [class~=fa], 
 /** -- Since Material and Iconic used ::before -- **/
-.btn-iconed [class~=fi]::before,
+.btn-iconed [class~=bi]::before,
 .btn-iconed [class~=fi]::before,
 .btn-iconed [class~=mdi]::before,
 .btn-iconed [class~=icon]::before {
@@ -163,7 +166,7 @@ body {
 }
 /** -- Icons on Hover properties -- **/
 .btn-iconed:hover [class~=oi], .btn-iconed:hover [class~=fa], 
-.btn-iconed:hover [class~=mdi]::before, .btn-iconed:hover [class~=icon]::before, .btn-iconed:hover [class~=fi]::before{
+.btn-iconed:hover [class~=mdi]::before, .btn-iconed:hover [class~=icon]::before, .btn-iconed:hover [class~=fi]::before, .btn-iconed:hover [class~=bi]::before{
   opacity: 1;
   -webkit-transform: translateX(0px) scale(0.75);
   transform: translateX(0px) scale(0.75);
