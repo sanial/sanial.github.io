@@ -4,6 +4,29 @@ body {
   background: #ffffff;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow';
 }
+.nav > li {
+  display: inline-block;
+  padding-right: 25px;
+  vertical-align: middle;
+  line-height: 0;
+}
+.navbar__left,
+.navbar__right,
+.navbar__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar__logo {
+  width: 60px;
+  height: 60px;
+}
+
+.navbar__title {
+  margin-left: 50px;
+  font-size: x-large;
+}
 
 /** Flatted button %placeholder **/
 .btn-iconed.btn-flat {
