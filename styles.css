@@ -2,7 +2,7 @@
  /** Body CSS sample **/
 body {
   background: #ffffff;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+  font-family: 'Garamond','Franklin Gothic Medium', 'Arial Narrow';
 }
 /* .nav > li {
   display: inline-block;
@@ -19,13 +19,13 @@ body {
 }
 
 .navbar__logo {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 }
 
 .navbar__title {
-  margin-left: 50px;
-  font-size: x-large;
+  margin-left: 20px;
+  font-size: xx-large;
 }
 
 .bg-full {
@@ -48,6 +48,12 @@ html {
   overflow-x: hidden;
 }
 
+.prof {
+  width: 9%;
+  height: 9%;
+  /* padding: 1%; */
+  border-radius: 10%;
+}
 /** Flatted button %placeholder **/
 .btn-iconed.btn-flat {
   border-radius: 0rem;
