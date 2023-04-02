@@ -4,12 +4,12 @@ body {
   background: #ffffff;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow';
 }
-.nav > li {
+/* .nav > li {
   display: inline-block;
   padding-right: 25px;
   vertical-align: middle;
   line-height: 0;
-}
+} */
 .navbar__left,
 .navbar__right,
 .navbar__list {
@@ -19,13 +19,32 @@ body {
 }
 
 .navbar__logo {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
 .navbar__title {
   margin-left: 50px;
   font-size: x-large;
+}
+
+.bg-full {
+  position: relative;
+}
+
+.bg-full:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX( -50%);
+  height: 100%;
+  width: 100vw;
+  background: rgb(0, 0, 0);
+}
+
+html {
+  overflow-x: hidden;
 }
 
 /** Flatted button %placeholder **/
