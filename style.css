@@ -183,7 +183,7 @@ aside{
    aspect-ratio: 1;
    outline: .5rem solid var(--clr-primary-400);
    border-radius: 50%;
-   background: var(--clr-primary-800);
+   background: var(--clr-neutral-100);
 }
 
 
@@ -194,10 +194,10 @@ aside{
 }
 
 .icon-menu {
-    background-color: white;
-    color: var(--clr-primary-800);;
+    background-color: var(--clr-primary-400);
+    color: white;;
     border-radius: .15rem;
-    border: 2px solid var(--clr-primary-800);;
+    border: 2px;
     
     position: relative;
     top: -1.05rem;
@@ -206,16 +206,11 @@ aside{
 }
   
 .icon-menu:hover {
-    /* background-color: var(--clr-primary-800); */
-    color: var(--clr-accent-400);
-    border-color: var(--clr-accent-400);
+    background-color: var(--clr-accent-400); 
+    /* color: var(--clr-primary-400); */
+    /* border-color: var(--clr-accent-400); */
     /* box-shadow: 0 0 50px var(--clr-accent-400); */
 
-}
-
-.icon-menu:click{
-    color: var(--clr-accent-400);
-    border-color: var(--clr-accent-400);
 }
 
 /* .collapsible {
