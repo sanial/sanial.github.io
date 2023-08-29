@@ -153,25 +153,27 @@ aside{
 
 .icon-list{
     height: 100%;
-    border-left: 1px solid;
-    border-color: var(--clr-primary-800);
+    border-left: 3px solid;
+    border-color: var(--clr-neutral-200);
     padding: 0;
-    margin: 0;
+    margin-top: 5rem;
+    /* margin: 0; */
     margin-left: clamp(3rem, 10vw, 10rem);
     list-style: none;
     display: grid;
-    align-content: center;
-    gap: 3rem;
+    align-content: flex-start;
+    gap: 2rem;
 }
 
 .icon-list > li{
+    /* border: 1px solid orange; */
     position: relative;
     padding-left: 1rem;
 }
 
 .icon-list > li::before{
     --_size: .5rem;
-
+    
    content: '';
    position: absolute;
    top: 0;
@@ -184,10 +186,6 @@ aside{
    background: var(--clr-primary-800);
 }
 
-/* .icon-list > li::before:hover{
-    outline: .5rem solid var(--clr-primary-800);
-    border-radius: 50%;
-} */
 
 .icon-down{
     text-align: center;
@@ -215,7 +213,12 @@ aside{
 
 }
 
-.collapsible {
+.icon-menu:click{
+    color: var(--clr-accent-400);
+    border-color: var(--clr-accent-400);
+}
+
+/* .collapsible {
     background-color: #777;
     color: white;
     cursor: pointer;
@@ -233,7 +236,8 @@ aside{
   
   .content {
     padding: 0 18px;
-    display: none;
+    max-height: 0;
     overflow: hidden;
+    transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
-  }
+  } */
