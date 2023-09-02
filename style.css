@@ -34,6 +34,7 @@ body{
   font-size: var(--fs-400);
   font-weight: var(--fw-regular);
   line-height: 1.5;
+  position: relative;
 }
 .visually-hidden{
   clip: rect(0 0 0 0);
@@ -116,11 +117,18 @@ aside{
   outline-style: solid;
   outline-color: #cddcdd;
   outline-width: 1px;
+  /* padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: .5rem; */
+  background: var(--clr-neutral-100); 
+}
+
+.proj-text{
   padding-top: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: .5rem;
-  background: var(--clr-neutral-100); 
 }
 
 .proj-extra1{
@@ -161,6 +169,10 @@ aside{
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: .5rem;
+}
+
+.proj-pic img{
+  object-fit: contain;
 }
 
 
@@ -239,4 +251,6 @@ aside{
   color: var(--clr-accent-100);
   padding: 1rem;  
 }
+
+
 

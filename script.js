@@ -5,6 +5,10 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 $('[data-toggle="tooltip"]').tooltip();
 
+var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  target: '#navbar-example'
+})
+
 // $('.btn').click(function(){
 //     //Removing `data-toggle` from all elements
 //     $('.btn').removeData('toggle');
@@ -15,10 +19,10 @@ $('[data-toggle="tooltip"]').tooltip();
 // $().button('toggle')
 
 /* Latest compiled and minified JavaScript included as External Resource */
-$('.btn-switch').click(function() {
-  $('.btn-switch').removeClass("active red blue");
-  if ($(this).find('span').text() == "Home")
-    $(this).addClass('active red');
-  else
-    $(this).addClass('active blue');
-});
+// $('.btn-switch').click(function() {
+//   $('.btn-switch').removeClass("active red blue");
+//   if ($(this).find('span').text() == "Home")
+//     $(this).addClass('active red');
+//   else
+//     $(this).addClass('active blue');
+// });

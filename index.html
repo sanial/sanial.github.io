@@ -33,30 +33,30 @@
         <div class="main-grid">
             <aside>
                 <h2 class="visually-hidden">My skills</h2>
-                <ul class="icon-list" role="list">
+                <ul class="icon-list list-group" role="list">
                     <li>
-                        <h2 class="visually-hidden">home button</h2>
-                        <div class = "bullet"><button type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="home"><i class="ri-home-2-line"></i></button></div>
+                        <h2 class="visually-hidden list-group-item list-group-item-action" href="#list-item-1">home button</h2>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="home"><i class="ri-home-2-line"></i></button>
                     </li>
                     <li>
                         <h2 class="visually-hidden">aboutme button</h2>
-                        <button type="button" class="btn btn-dark"><i class="ri-user-3-line"></i></button>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="about me"><i class="ri-user-3-line"></i></button>
                     </li>
                 </ul>
                 <ul class="icon-list2" role="list">
                     <li>
                         <h2 class="visually-hidden">file button</h2>
-                        <div class = "bullet">
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">
-                                <i class="ri-file-line"></i>
-                            </button>
-                        </div>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">
+                            <i class="ri-code-s-slash-line"></i>
+                        </button>
+                        
                     </li> 
                 </ul>     
             </aside>
             
             <main>
-                <p class="eyebrow">Skills & Projects </p>
+                <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                <p class="eyebrow" id="list-item-1">Skills & Projects </p>
                 <h1 class="page-title">Sania Latif</h1>
                 <p class="intro">Hi! I'm a Computer Science & Psychology student</p>
                 <p class="intro">My interest in assistive technologies, math & language learning,
@@ -64,12 +64,15 @@
 
                 <div class="proj-experience">
                     <div class="proj">
-                        <p class="skill">django python aws</p>
-                        <div class="proj-info">
-                            <h2 class="proj-name">Newsline</h2>
-                            <span class="proj-description-quick">realtime news</span>                        
+                        <div class="proj-text">
+                            <p class="skill">django python aws</p>
+                            <div class="proj-info">
+                                <h2 class="proj-name">Newsline</h2>
+                                <span class="proj-description-quick">realtime news</span>
+                            </div>
+                            <p>Displays a list of news in realtime</p>
                         </div>
-                        <p>Displays a list of news in realtime</p>
+                        <div class="proj-pic"><img src="./pics/proj1-pic-a.png" alt="project 1 pic newspapers"></div>
                         <div class="icon-down">
                             <a class="btn btn-light" id= "btn-proj1" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                             <i class="fa-solid fa-angle-down"></i>
@@ -77,24 +80,30 @@
                         </div>
                     </div>
                     <div class="proj">
-                        <p class="skill">flutter dart</p>
-                        <div class="proj-info">
-                            <h2 class="proj-name">SEPTA App</h2>
-                            <span class="proj-description-quick">train app</span>
+                        <div class="proj-text">
+                            <p class="skill">flutter dart</p>
+                            <div class="proj-info">
+                                <h2 class="proj-name">SEPTA App</h2>
+                                <span class="proj-description-quick">train app</span>
+                            </div>
+                            <p>App that displays realtime regional rail train info</p>
                         </div>
-                        <p>App that displays realtime regional rail train info</p>
+                        <div class="proj-pic"><img src="./pics/proj2-pic-a.png" alt="project 1 pic newspapers"></div>
                         <div class="icon-down">
                             <a class="btn btn-light" id= "btn-proj2" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
                             <i class="fa-solid fa-angle-down"></i></a>
                         </div>
                     </div>
                     <div class="proj">
-                        <p class="skill">data science</p>
-                        <div class="proj-info">
-                            <h2 class="proj-name">Data-proj-name</h2>
-                            <span class="proj-description-quick">analysis</span> 
+                        <div class="proj-text">
+                            <p class="skill">data science</p>
+                            <div class="proj-info">
+                                <h2 class="proj-name">Data-proj-name</h2>
+                                <span class="proj-description-quick">analysis</span>
+                            </div>
+                            <p>Analysis and displaying data</p>
                         </div>
-                        <p>Analysis and displaying data</p>
+                        <div class="proj-pic"><img src="./pics/proj3-pic-a.png" alt="project 1 pic newspapers"></div>
                         <div class="icon-down">
                             <a class="btn btn-light" id= "btn-proj3" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3"></a>
                             <i class="fa-solid fa-angle-down"></i>
@@ -113,7 +122,7 @@
                     </div>
                 </div> <!--project experience grid end-->
                 
-            </main>
+            </div></main>
         </div>
         
     </body>
