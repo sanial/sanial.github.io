@@ -20,6 +20,8 @@
 
    <!--files, scripts-->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_timeline.css">
+  
   <script src="scripts.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
@@ -34,12 +36,23 @@
                 <ul class="icon-list" role="list">
                     <li>
                         <h2 class="visually-hidden">home button</h2>
-                        <button class="icon-menu"><i class="ri-home-2-line"></i></button>
+                        <div class = "bullet"><button type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="home"><i class="ri-home-2-line"></i></button></div>
                     </li>
                     <li>
-                        <h2 class="visually-hidden">code</h2>
-                        <button class="icon-menu"><i class="ri-user-3-line"></i></button>
+                        <h2 class="visually-hidden">aboutme button</h2>
+                        <button type="button" class="btn btn-dark"><i class="ri-user-3-line"></i></button>
                     </li>
+                </ul>
+                <ul class="icon-list2" role="list">
+                    <li>
+                        <h2 class="visually-hidden">file button</h2>
+                        <div class = "bullet">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">
+                                <i class="ri-file-line"></i>
+                            </button>
+                        </div>
+                    </li> 
+                </ul>     
             </aside>
             
             <main>
@@ -57,7 +70,11 @@
                             <span class="proj-description-quick">realtime news</span>                        
                         </div>
                         <p>Displays a list of news in realtime</p>
-                        <div class="icon-down"><i class="fa-solid fa-angle-down"></i></div>
+                        <div class="icon-down">
+                            <a class="btn btn-light" id= "btn-proj1" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                            <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="proj">
                         <p class="skill">flutter dart</p>
@@ -66,7 +83,10 @@
                             <span class="proj-description-quick">train app</span>
                         </div>
                         <p>App that displays realtime regional rail train info</p>
-                        <div class="icon-down"><i class="fa-solid fa-angle-down"></i></div>
+                        <div class="icon-down">
+                            <a class="btn btn-light" id= "btn-proj2" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
+                            <i class="fa-solid fa-angle-down"></i></a>
+                        </div>
                     </div>
                     <div class="proj">
                         <p class="skill">data science</p>
@@ -75,9 +95,24 @@
                             <span class="proj-description-quick">analysis</span> 
                         </div>
                         <p>Analysis and displaying data</p>
-                        <div class="icon-down"><i class="fa-solid fa-angle-down"></i></div>
+                        <div class="icon-down">
+                            <a class="btn btn-light" id= "btn-proj3" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3"></a>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
                     </div>
-                </div>
+                    <!--proj-extra collapseable areas-->
+                    <div class="proj-extra1 collapse multi-collapse" id="multiCollapseExample1">
+                        <div class="card card-body">
+                            Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                        </div>
+                    </div>
+                    <div class="proj-extra2 collapse multi-collapse" id="multiCollapseExample2">
+                        <div class="card card-body">
+                            Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                        </div>
+                    </div>
+                </div> <!--project experience grid end-->
+                
             </main>
         </div>
         
