@@ -165,7 +165,7 @@ aside{
 
 
 .icon-list{
-  /* height: 10%; */
+  height: 42%;
   border-left: 3px solid;
   border-color: var(--clr-accent-200);
   padding: 0;
@@ -204,7 +204,7 @@ aside{
   border-left: 3px solid;
   border-color: var(--clr-accent-200);
   padding: 0;
-  margin-top: 10rem;
+  margin-top: 0rem;
   /* margin: 0; */
   margin-left: clamp(3rem, 10vw, 10rem);
   list-style: none;
@@ -240,49 +240,3 @@ aside{
   padding: 1rem;  
 }
 
-
-
-/* .icon-menu {
-  background-color: var(--clr-primary-400);
-  color: white;;
-  border-radius: .15rem;
-  border: 2px;
-  
-  position: relative;
-  top: -0.5rem;
-  display: flex;
-  
-} */
-
-/* .icon-menu:hover {
-  background-color: var(--clr-accent-400); 
-  
-
-} */
-/* color: var(--clr-primary-400); */
-  /* border-color: var(--clr-accent-400); */
-  /* box-shadow: 0 0 50px var(--clr-accent-400); */
-
-/* .collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-.active, .collapsible:hover {
-  background-color: #555;
-}
-
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-} */
