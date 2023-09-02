@@ -172,6 +172,7 @@ aside{
 }
 
 .proj-pic img{
+  width: 100%;
   object-fit: contain;
 }
 
