@@ -131,15 +131,6 @@ aside{
   padding-bottom: .5rem;
 }
 
-.proj-extra1{
-  grid-row: 2;
-  grid-column: 1;
-}
-.proj-extra2{
-  grid-row: 2;
-  grid-column: 2;
-}
-
 .proj-name{
   /* is 600 */
   font-size: var(--fs-600);
@@ -176,6 +167,17 @@ aside{
   height: 100%;
   width: 100%;
   object-fit: contain;
+}
+
+.proj-extra1{
+  padding-right: 1.5rem;
+  grid-row: 2;
+  grid-column: 1;
+}
+.proj-extra2{
+  padding-right: 1.5rem;
+  grid-row: 2;
+  grid-column: 2;
 }
 
 
