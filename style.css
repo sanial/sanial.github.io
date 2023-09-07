@@ -66,6 +66,7 @@ main{
 aside{
   grid-column: 1;
   align-self: stretch;
+  align-items: flex-start;
 }
 
 .eyebrow{
@@ -126,6 +127,7 @@ aside{
 
 }
 
+
 .proj-text{
   padding-top: 2rem;
   padding-left: 2rem;
@@ -169,6 +171,7 @@ aside{
   height: 100%;
   width: 100%;
   object-fit: contain;
+  border-radius: 2rem;
 }
 
 .proj-extra1{

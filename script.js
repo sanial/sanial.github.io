@@ -67,3 +67,7 @@ var svgCover = function() {
 svgCover();
 
 window.addEventListener('resize', svgCover);
+
+//
+/**Fading Scroll */
+//
