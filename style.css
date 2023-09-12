@@ -266,6 +266,10 @@ aside{
   padding: 1rem;  
 }
 
+/* .video{
+  border-radius: 2rem;
+} */
+
 /*Image Tab gallery*/
 /* The grid: Four equal columns that floats next to each other */
 
@@ -274,8 +278,10 @@ aside{
 }
 
 .carousel-item img {
-  width: 320px;
-  height: 240px !important
+  width: 80%;
+  height: 80%;
+  /* width: 320px;
+  height: 240px !important */
 }
 
 #myCarousel .carousel-indicators {
