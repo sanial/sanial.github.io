@@ -48,7 +48,7 @@
 
 <body>
     <div class="main-grid">
-        <aside>
+        <aside id="navbar-1">
             <h2 class="visually-hidden">My skills</h2>
             <ul class="icon-list list-group" role="list">
                 <li>
@@ -60,7 +60,7 @@
                 <li>
                     <h2 class="visually-hidden">aboutme button</h2>
                     <button type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                        data-bs-placement="right" title="about me"><i class="ri-user-3-line"></i></button>
+                        data-bs-placement="right" title="about me" href="#aboutme"><i class="ri-user-3-line"></i></button>
                 </li>
             </ul>
             <ul class="icon-list2" role="list">
@@ -77,7 +77,7 @@
         </aside>
 
         <main>
-            <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example"
+            <div data-bs-spy="scroll" data-bs-target="navbar-1" data-bs-offset="0" class="scrollspy-example"
                 tabindex="0">
                 <p class="eyebrow" id="list-item-1">Skills & Projects </p>
                 <h1 class="page-title">Sania Latif</h1>
@@ -88,14 +88,14 @@
                 <div class="proj-experience">
                     <div class="proj">
                         <div class="proj-text">
-                            <p class="skill">django ● python ● aws</p>
+                            <p class="skill">⦿ data science</p>
                             <div class="proj-info">
-                                <h2 class="proj-name">Newsline</h2>
-                                <span class="proj-description-quick">realtime news</span>
+                                <h2 class="proj-name">Pedestrian Watcher</h2>
+                                <span class="proj-description-quick">detection</span>
                             </div>
-                            <p>Displays a list of news in realtime</p>
+                            <p>Detect pedestrians</p>
                         </div>
-                        <div class="proj-pic"><img src="./pics/proj1-pic.png" alt="project 1 pic newspapers"></div>
+                        <div class="proj-pic"><img src="./pics/proj1-pic-e.png" alt="project 1 pic newspapers"></div>
                         <div class="icon-down">
                             <a class="btn btn-light" id="btn-proj1" data-bs-toggle="collapse"
                                 href="#multiCollapseExample1" role="button" aria-expanded="false"
@@ -109,7 +109,7 @@
                             <p class="skill">flutter ● dart</p>
                             <div class="proj-info">
                                 <h2 class="proj-name">SEPTA App</h2>
-                                <span class="proj-description-quick">train view app</span>
+                                <span class="proj-description-quick">train view</span>
                             </div>
                             <p>App that displays realtime regional rail train info</p>
                         </div>
@@ -189,7 +189,20 @@
                         </div>
                     </div>
                 </div> <!--project experience grid end-->
-
+                
+                <h2 id="aboutme">About Me</h4>
+                    <p> </p>
+                    <div class="media">
+                      <img class="mr-3 rounded prof" src="prof_image.jpg" alt="profile image">
+                      <div class="media-body border border-success rounded" style="padding: 1%;">
+                        <!-- <h6 class="mt-0">Education</h5> -->
+                        <p class="font-italic">Currently a student at Temple University set to graduate 2023, 
+                          I have enjoyed working at Tarafoods Company, Learning & Cognition Lab, 
+                          and in the Dean’s Office in College of Education. During offtime you can find me 
+                          coding, taking long nature walks and enjoying the creative freedom to ideate.</p>
+                      </div>
+                    </div>
+                  <p> </p>
             </div>
         </main>
     </div>
