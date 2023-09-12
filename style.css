@@ -95,7 +95,7 @@ aside{
   /* Size of the implicit columns */
   gap: 1rem;
   grid-auto-flow: column;
-  overflow-x: scroll;
+  overflow-x: auto;
   padding: 2rem;
   justify-items: center;
 }
