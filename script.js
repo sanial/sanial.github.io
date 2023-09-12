@@ -71,3 +71,42 @@ window.addEventListener('resize', svgCover);
 //
 /**Fading Scroll */
 //
+
+//Tab Window
+
+// shortcuts 
+
+const log = console.log
+
+// variables
+
+let modalTab = document.querySelector('.tab-modal')
+let modalImg = document.querySelector('.tab-modal__img')
+let closer = document.querySelector('.tab-modal__close')
+
+let tabs_img = document.getElementsByClassName('tab-img')
+
+// functions 
+
+function defaultImage(){
+    modalImg.src = tabs_img[0].src
+    modalImg.alt = tabs_img[0].alt
+    modalTab.classList.add('show')
+}
+
+// events
+
+defaultImage()
+
+closer.addEventListener('click', () => {
+    modalTab.classList.remove('show')
+})
+
+for(let i=0; i < tabs_img.length; i++){
+    tabs_img[i].addEventListener('click', () => {
+        modalImg.src = tabs_img[i].src
+        modalImg.alt = tabs_img[i].alt
+        modalTab.classList.add('show')
+    })
+}
+
