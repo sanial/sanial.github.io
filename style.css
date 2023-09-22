@@ -188,6 +188,11 @@ aside{
   grid-row: 2;
   grid-column: 2;
 }
+.proj-extra3{
+  /* padding-right: 1.5rem; */
+  grid-row: 2;
+  grid-column: 3;
+}
 
 
 .icon-list{
