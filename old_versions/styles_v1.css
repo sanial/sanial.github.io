@@ -1,0 +1,113 @@
+
+ /** Body CSS sample **/
+ body {
+  background: #ffffff;
+  font-family: 'Garamond','Franklin Gothic Medium', 'Arial Narrow';
+}
+/* .nav > li {
+  display: inline-block;
+  padding-right: 25px;
+  vertical-align: middle;
+  line-height: 0;
+} */
+.navbar__left,
+.navbar__right,
+.navbar__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar__logo {
+  width: 70px;
+  height: 70px;
+}
+
+.navbar__title {
+  margin-left: 20px;
+  font-size: xx-large;
+}
+
+.bg-full {
+  position: relative;
+}
+
+.bg-full:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX( -50%);
+  height: 100%;
+  width: 100vw;
+  background: rgb(0, 0, 0);
+  /* text-decoration-color: #ffffff; */
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.prof {
+  width: 9%;
+  height: 9%;
+  /* padding: 1%; */
+  border-radius: 10%;
+}
+/** Flatted button %placeholder **/
+.btn-iconed.btn-flat {
+  border-radius: 0rem;
+  /* margin-right: 2rem; Icon sample spacing */
+}
+
+/** Rounded button **/
+.btn-rounded {
+  border-radius: 5rem;
+  /* margin-right: 2rem;  Icon sample spacing */
+}
+
+/** Button Iconed **/
+.btn-iconed {
+  transition: .15s ease-in-out;
+  padding-left: 1.3rem;
+  padding-right: 1.5rem;
+  /** Icons Classes **/
+  /** -- Open Iconic, Font Awesome -- **/
+  /** Span Class **/
+  /** -- Icons on Hover properties -- **/
+  /** Flatted button **/
+}
+.btn-iconed [class~=oi], .btn-iconed [class~=fa],
+.btn-iconed [class~=typcn]::before,
+.btn-iconed [class~=mdi]::before,
+.btn-iconed [class~=icon]::before {
+  opacity: 0;
+  -webkit-transform-origin: left right;
+          transform-origin: left right;
+  -webkit-transform: translateX(-10px) scale(1.25);
+          transform: translateX(-10px) scale(1.25);
+  transition: .15s ease-out;
+}
+.btn-iconed [class=spn] {
+  position: relative;
+  left: -9px;
+  -webkit-transform-origin: left right;
+          transform-origin: left right;
+  -webkit-transform: translateX(-9px);
+          transform: translateX(-9px);
+  transition: .20s ease-in-out;
+}
+.btn-iconed:hover {
+  /** -- Span on Hover properties -- **/
+}
+.btn-iconed:hover [class~=oi], .btn-iconed:hover [class~=fa],
+.btn-iconed:hover [class~=mdi]::before, .btn-iconed:hover [class~=icon]::before, .btn-iconed:hover [class~="typcn"]::before {
+  opacity: 1;
+  -webkit-transform: translateX(0px) scale(0.75);
+          transform: translateX(0px) scale(0.75);
+}
+.btn-iconed:hover [class=spn] {
+  left: 0px;
+}
+
+/** style.scss -- source **/

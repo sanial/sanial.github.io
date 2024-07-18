@@ -7,34 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--bootstrap-->
-    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-    <link rel='stylesheet'
-        href='https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css'>
-    <link rel='stylesheet'
-        href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.7.94/css/materialdesignicons.min.css'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.4.1/css/ionicons.min.css'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css'>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+
 
     <!--files, scripts-->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style_timeline.css">
-
-
+    <link rel="stylesheet" href="style.css"> 
     <script src="script.js"></script>
+
+
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
@@ -43,159 +37,276 @@
         integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
         crossorigin="anonymous"></script>
 
-    <title>Sania Latif Portfolio</title>
+
+    <title id="home">Sania Latif Portfolio</title>
+
+    <!-- Navigation Bar -->
+    <nav id = "scroll-nav" class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid topnav">
+            <a class = "p-4" href="#name">sania latif</a>
+            
+            <span class="navbar-split">
+                <a class = "p-4" href="#home" ><i class="ri-home-2-line"></i></a>
+                <a class = "p-4" href="#projects" ><i class="ri-file-code-line"></i></a>
+                <a class = "p-4" href="#about" ><i class="ri-user-3-line"></i></a>
+                <a class = "p-4" href="#menu"><i class="ri-menu-line"></i></a> 
+        
+            </span>
+        </div>
+    </nav>
+    
 </head>
 
 <body>
-    <div class="main-grid">
-        <aside id="navbar-1">
-            <h2 class="visually-hidden">My skills</h2>
-            <ul class="icon-list list-group" role="list">
-                <li>
-                    <h2 class="visually-hidden list-group-item list-group-item-action" href="#list-item-1">home button
-                    </h2>
-                    <a href="index.html"><button type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                        data-bs-placement="right" title="home"><i class="ri-home-2-line"></i></button></a>
-                </li>
-                <li>
-                    <h2 class="visually-hidden">aboutme button</h2>
-                    <a href="about.html"><button type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                        data-bs-placement="right" title="about me" href="#aboutme"><i class="ri-user-3-line"></i></button></a>
-                </li>
-            </ul>
-            <ul class="icon-list2" role="list">
-                <li>
-                    <h2 class="visually-hidden">file button</h2>
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
-                        data-bs-target=".multi-collapse" aria-expanded="false"
-                        aria-controls="multiCollapseExample1 multiCollapseExample2">
-                        <i class="ri-code-s-slash-line"></i>
-                    </button>
+    <!-- <p class="fw-normal text-center ">Hi! I do UX/UI ● Frontend Development ● Data Science ● ML/AI</p></div> -->
+    
+    
+    <div class="grid-container" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+        <div class="item-1">
+          <!-- 1 -->
+            <!-- <div class = "img-grid"> -->
+            <div class="img-overlay-wrap">
+                <div style="text-align: center">
 
-                </li>
-            </ul>
-        </aside>
+                    <img src="./animation/contour_lines_map_10b.png" class="img-fluid" alt="profile image" >
+                    
+                    <div class='loc1'>
+                        <span class='pulse-button'><i class="ri-add-circle-fill"></i></span>
+                        <div class="line"></div>
+                        <!-- <div class="wordwrapper"> -->
+                        <div class="word">cohesion</div> 
+                    </div>
+                    
+                    <div class='loc2'>
+                        <span class='pulse-button'><i class="ri-add-circle-fill"></i></span>
+                        <div class="line_2"></div>
+                        <!-- <div class="wordwrapper"> -->
+                        <div class="word_2">spatiotemporal</div> 
+                    </div>
 
-        <main>
-            <div data-bs-spy="scroll" data-bs-target="navbar-1" data-bs-offset="0" class="scrollspy-example"
-                tabindex="0">
-                <p class="eyebrow" id="list-item-1">Skills & Projects </p>
-                <h1 class="page-title">Sania Latif</h1>
-                <p class="intro">Hi! I'm a Computer Science & Psychology student</p>
-                <p class="intro">My interest in assistive technologies, math & language learning,
-                    devolved into my learning more about Machine learning, AI and Autonomous systems.</p>
-
-                <div class="proj-experience">
-                    <div class="proj">
-                        <div class="proj-text">
-                            <p class="skill">⦿ machine learning ● python</p>
-                            <div class="proj-info">
-                                <h2 class="proj-name">Pedestrian Watcher</h2>
-                                <span class="proj-description-quick">detection</span>
-                            </div>
-                            <p>Analyze video datasets to detect pedestrians</p>
-                        </div>
-                        <div class="proj-pic"><img src="./pics/proj1-pic-e.png" alt="project 1 pic newspapers"></div>
-                        <div class="icon-down">
-                            <a class="btn btn-light" id="btn-proj1" data-bs-toggle="collapse"
-                                href="#multiCollapseExample1" role="button" aria-expanded="false"
-                                aria-controls="multiCollapseExample1">
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
-                        </div>
+                    <div class='loc3'>
+                        <span class='pulse-button' onmouseover="overSVG()" onclick="displaySVG()"><i class="ri-add-circle-fill"></i></span>
+                        <div class="line"></div>
+                        <!-- <div class="wordwrapper"> -->
+                        <div class="word">data + ethics</div> 
                     </div>
-                    <div class="proj">
-                        <div class="proj-text">
-                            <p class="skill">flutter ● dart</p>
-                            <div class="proj-info">
-                                <h2 class="proj-name">SEPTA App</h2>
-                                <span class="proj-description-quick">train view</span>
-                            </div>
-                            <p>App that displays realtime regional rail train info</p>
-                        </div>
-                        <div class="proj-pic"><img src="./pics/proj2-extra3-b.png" alt="project 1 pic newspapers"></div>
-                        <div class="icon-down">
-                            <a class="btn btn-light" id="btn-proj2" data-bs-toggle="collapse"
-                                href="#multiCollapseExample2" role="button" aria-expanded="false"
-                                aria-controls="multiCollapseExample2">
-                                <i class="fa-solid fa-angle-down"></i></a>
-                        </div>
-                    </div>
-                    <div class="proj">
-                        <div class="proj-text">
-                            <p class="skill">⦿ deep learning  </p>
-                            <div class="proj-info">
-                                <h2 class="proj-name">Handwriting Recognizer</h2>
-                                <span class="proj-description-quick">matching</span>
-                            </div>
-                            <p>Analyze MNIST dataset and match handwriting</p>
-                        </div>
-                        <div class="proj-pic"><img src="./pics/proj3-pic-b.png" alt="profile image"></div>
-                        <div class="icon-down">
-                            <a class="btn btn-light" id="btn-proj3" data-bs-toggle="collapse"
-                                href="#multiCollapseExample3" role="button" aria-expanded="false"
-                                aria-controls="multiCollapseExample3">
-                            <i class="fa-solid fa-angle-down"></i></a>
-                        </div>
-                    </div>
-                    <!--proj-extra collapseable areas-->
-                    <div class="proj-extra1 collapse multi-collapse" id="multiCollapseExample1">
-                        <div class="card card-body">
-                            Analyze video datasets using machine learning to detect pedestrians. This project was done in conjunction with a tutorial 
-                        </div>
-                    </div>
-                    <div class="proj-extra2 collapse multi-collapse" id="multiCollapseExample2">
-                        <div class="card card-body">
-                            <div class="container">
-
-                                <div id="myCarousel" class="carousel slide" data-ride="carousel" align="center">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"> <video width="300" controls autoplay muted loop>
-                                            <source src="./pics/proj2-extra4.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                            </video>
-                                        </div>
-                                        <div class="carousel-item"> <img src="./pics/proj2-extra5.jpg"
-                                                class="rounded">
-                                        </div>
-                                        <div class="carousel-item"> <img src="./pics/proj2-extra6.jpg" class="rounded">
-                                        </div>
-                                        <div class="carousel-item"> <img src="./pics/proj2-extra7.jpg" class="rounded">
-                                        </div>
-                                        
-                                    </div>
-                                    <ol class="carousel-indicators list-inline">
-                                        
-                                        <li class="list-inline-item active"> <a id="carousel-selector-0"
-                                                class="selected" data-slide-to="0" data-target="#myCarousel">
-                                                <img src="./pics/proj2-extra3-a.png" class="img-fluid rounded"> </a> </li>
-                                        <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1"
-                                                data-target="#myCarousel"> <img src="./pics/proj2-extra5.jpg"
-                                                    class="img-fluid rounded"> </a> </li>
-                                        <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2"
-                                                data-target="#myCarousel"> <img src="./pics/proj2-extra6.jpg"
-                                                    class="img-fluid rounded"> </a> </li>
-                                        <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3"
-                                                data-target="#myCarousel"> <img src="./pics/proj2-extra7.jpg"
-                                                    class="img-fluid rounded"> </a> </li>
-                                    </ol>
-                                </div>
-
-                            </div>
-                            <!-- <img src="./pics/proj2-extra3.png" alt="project 1 pic newspapers"> -->
-                            Displays data in a flutter mobile app from the publicly available realtime SEPTA train app.
-                        </div>
-                    </div>
-                    <div class="proj-extra3 collapse multi-collapse" id="multiCollapseExample3">
-                        <div class="card card-body">
-                            A deep learning project done in conjunction with a tutorial, uses MNIST dataset and PyTorch library 
-                        </div>
-                    </div>
-                </div> <!--project experience grid end-->
+                    
+                    
+                </div>   
             </div>
-        </main>
+            <!-- </div> -->
+
+        </div>
+        <div class="item-2">
+          <!-- 2 -->
+            <div class="circle_container">
+                <div class="circle_1"></div>
+                <p>ui ▪ ux</p>
+              </div>
+              <div class="circle_container">
+                <div class="circle_2"></div>
+                <p>software development</p>
+              </div>
+              <div class="circle_container">
+                <div class="circle_3"></div>
+                <p>data science ▪ ml ▪ ai</p>
+              </div>
+        </div>
+
+        <div class="item-3">
+          <!-- 3 -->
+        </div>
+        <div class="item-4">
+          <!-- 4 -->
+            <!-- <div class="card">
+                
+            </div> -->
+            <h4 id="projects">projects</h4>
+            <!-- <p class="eyebrow" id="list-item-1">PROJECTS</p> -->
+            <ul class="cards">
+                <li>
+                  <a href="" class="card">
+                    <img src="./pics/proj2-extra3-b.png" class="card__image" alt="" />
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                        <img class="card__thumb" src="./pics/septa_logo_1.jpeg" alt="" />
+                        <div class="card__header-text">
+                          <h3 class="card__title">Septa Commuter App</h3>            
+                          <span class="card__status">flutter ● dart ● realtime api</span>
+                        </div>
+                      </div>
+                      <p class="card__description">App that displays realtime regional rail train info with a dynamic UI</p>
+                    </div>
+                  </a>      
+                </li>
+                <li>
+                  <a href="" class="card">
+                    <img src="./pics/scat.jpeg" class="card__image" alt="" />
+                    <div class="card__overlay">        
+                      <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                        <img class="card__thumb" src="./pics/data-vot-2.jpeg" alt="" />
+                        <div class="card__header-text">
+                          <h3 class="card__title">Spatial Visualization of Thought in Computing</h3>
+                          <span class="card__status">⦿ deep learning</span>
+                        </div>
+                      </div>
+                      <p class="card__description">Coming Soon</p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="card">
+                    <img src="pics/bubblns-pre-5.png" class="card__image" alt="" />
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                        <img class="card__thumb" src="pics/spat-vot.jpeg" alt="" />
+                        <div class="card__header-text">
+                          <h3 class="card__title">Bubblelines</h3>
+                          <span class="card__tagline">Coming Soon!</span>            
+                          <span class="card__status">react ● realtime api</span>
+                        </div>
+                      </div>
+                      <p class="card__description">Coming Soon</p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="card">
+                    <img src="pics/goog-16-a.png" class="card__image" alt="" />
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                        <img class="card__thumb" src="pics/bubb-logo-7.jpeg" alt="" />
+                        <div class="card__header-text">
+                          <h3 class="card__title">Google Gemini Developer Competition</h3>
+                          <span class="card__status">Coming soon!</span>
+                        </div>          
+                      </div>
+                      <p class="card__description">Coming Soon</p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="card">
+                    <img src="pics/proj1-pic-e.png" class="card__image" alt="" />
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                        <img class="card__thumb" src="pics/bubb-logo-8.jpeg" alt="" />
+                        <div class="card__header-text">
+                          <h3 class="card__title">Pedestrian Watcher</h3>
+                          <span class="card__status">⦿ machine learning ● python</span>
+                        </div>          
+                      </div>
+                      <p class="card__description">Analyze video datasets to detect pedestrians</p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="card">
+                    <img src="pics/proj3-pic-b.png" class="card__image" alt="" />
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                        <img class="card__thumb" src="pics/bubb-logo-8.jpeg" alt="" />
+                        <div class="card__header-text">
+                          <h3 class="card__title">Handwriting Recognizer</h3>
+                          <span class="card__status">⦿ deep learning</span>
+                        </div>          
+                      </div>
+                      <p class="card__description">Analyze MNIST dataset and match handwriting</p>
+                    </div>
+                  </a>
+                </li>       
+              </ul>
+        </div>
+        <div class="item-5">
+          <!-- 5 -->
+          <p>Hi! As a former student in Computer Science & Psychology with interest in assistive technologies, math & language learning,
+            devolved into my learning more about Machine learning, AI and Autonomous systems. During offtime you can find me 
+            coding, taking long nature walks and enjoying the creative freedom to ideate.</p>
+
+        </div>
+        <div class="item-6">
+          <!-- 6 -->
+
+          <h4 id="about">about me</h4>
+          <!-- <img src="pics/contour-about-14-a.jpeg" class="about_me" alt="" /> -->
+          
+
+          <div class="img-overlay-wrap">
+            <div style="text-align: center">
+
+                <img src="pics/contour-about-14-a.jpeg" class="img-fluid" alt="profile image" >
+                
+                <div class='loc1'>
+                    <span class='pulse-button'><i class="ri-add-circle-fill"></i></span>
+                    <div class="line"></div>
+                    <!-- <div class="wordwrapper"> -->
+                    <div class="word">Work Abroad</div> 
+                </div>
+                
+                <div class='loc2'>
+                    <span class='pulse-button'><i class="ri-add-circle-fill"></i></span>
+                    <div class="line_2"></div>
+                    <!-- <div class="wordwrapper"> -->
+                    <div class="word_2">Learning & Cognition Lab</div> 
+                </div>
+
+                <div class='loc3'>
+                    <span class='pulse-button' onmouseover="overSVG()" onclick="displaySVG()"><i class="ri-add-circle-fill"></i></span>
+                    <div class="line"></div>
+                    <!-- <div class="wordwrapper"> -->
+                    <div class="word">College of Education</div> 
+                </div>
+                
+                
+            </div>   
+        </div>
+           
+        </div>
     </div>
 
+    
+
+    <!-- <img class="side_r" src="./animation/bw_palm_leaf.png" class="img-fluid" alt="profile image" >
+    <img class="side_l" src="./animation/bw_palm_leaf_lft.png" class="img-fluid" alt="profile image" > -->
+    
+
+
+    <!-- <div id="ln3" class="ln3">
+        <svg version="1.1" id="line_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px" height="1px" xml:space="preserve">
+            <path class="path3" fill="#01a09e" stroke-width="3" stroke="#056bca" d="M40 0 l300 0"/>
+        </svg>
+    </div> -->
+    <!-- <img src="./animation/contour_lines_map_58_a.jpg" class="im2 img-fluid" alt="profile image" > -->
+
+    <!-- <div class='ln1'>
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+            <image x="20" y="20" width="300" height="80" src="./animation/contour_lines_map_10_a.jpg" alt="profile image" >
+            <path d="M1,1 h4" stroke=#056bca stroke-width="0.025" />
+            <circle cx="1" cy="1" r="0.05" fill=#056bca />
+            <circle cx="5" cy="1" r="0.05" fill=#056bca />
+        </svg>
+    </div> -->
+    <!-- <svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+        <rect x="10" y="10" height="130" width="500" style="fill: #000000"/>
+
+        <image x="20" y="20" width="300" height="80"
+            xlink:href="http://jenkov.com/images/layout/top-bar-logo.png" />
+
+        <line x1="25" y1="80" x2="350" y2="80"
+                    style="stroke: #ffffff; stroke-width: 3;"/>
+    </svg> -->
+    
+
+    
 </body>
+
 
 </html>
