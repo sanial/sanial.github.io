@@ -285,7 +285,7 @@
   
     position: absolute;
     top: 35%;
-    left: 34%;
+    left: 32%;
   }
   .loc2 {
   position: absolute;
@@ -401,7 +401,7 @@
   top: 350%; left: 50%;
   transform: translate(-50%, -50%);
   width: 1%;
-  height: 500%; /*500px*/
+  height: 550%; /*500px*/
   background-color: #bfbfbf;
 }
 /* .wordwrapper {
