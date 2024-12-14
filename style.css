@@ -398,7 +398,7 @@
     grid-column: col 4;
     grid-row: row 1 / span 1;
     background: white;
-    /* linear-gradient(to right, #ffb347, #ffcc33);
+    /* linear-gradient: (to right, #ffb347, #ffcc33);
     opacity: 0.8; */
   }
   
@@ -441,7 +441,7 @@
   top: 350%; left: 50%;
   transform: translate(-50%, -50%);
   width: 1%;
-  height: 550%; /*500px*/
+  height: 500%; /*500px*/
   background-color: #bfbfbf;
 }
 /* .wordwrapper {
