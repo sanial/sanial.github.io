@@ -46,12 +46,17 @@ window.addEventListener("resize",scrollGrid);
 window.addEventListener("scroll",scrollGrid);
 
 function scrollGrid() {
-	let bodyHeight = document.body.offsetHeight,
-		mainHeight = document.querySelector("main_cards").offsetHeight,
-		cards = document.querySelector(".cards"),
-		transY = (window.pageYOffset / (mainHeight - bodyHeight)) * -100;
+  const cards = document.querySelector(".cards");
+  const mainCards = document.querySelector(".main_cards");
+  if (!cards || !mainCards) {
+    return;
+  }
+
+  let bodyHeight = document.body.offsetHeight,
+    mainHeight = mainCards.offsetHeight,
+    transY = (window.pageYOffset / (mainHeight - bodyHeight)) * -100;
 	
-	cards.style.setProperty("--scroll",transY + "%");
+  cards.style.setProperty("--scroll",transY + "%");
 }
 scrollGrid();
 
@@ -69,5 +74,8 @@ document.addEventListener("click", function (event) {
     return;
   }
 
-  window.open(url, "_blank", "noopener,noreferrer");
+  const openedWindow = window.open(url, "_blank", "noopener,noreferrer");
+  if (!openedWindow) {
+    window.location.href = url;
+  }
 });
