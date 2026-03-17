@@ -1,8 +1,11 @@
-$(function() {
-    $('.pnt').click(function() {
-      $(this).toggleClass('is-clicked');
+document.addEventListener("DOMContentLoaded", function () {
+  const points = document.querySelectorAll(".pnt");
+  points.forEach(function (point) {
+    point.addEventListener("click", function () {
+      point.classList.toggle("is-clicked");
     });
   });
+});
 
   function displayLineText() {
     var text = document.getElementById("textField");
@@ -28,18 +31,20 @@ $(function() {
   //       }
   //   }
   
-  $(document).ready(function () {
-    var tileCount = 100;
+document.addEventListener("DOMContentLoaded", function () {
+  var tileCount = 100;
 
-    // Create Grid
-    var grid = $('#grid');
-    for (var i = 0; i < tileCount; i++) {
-        var tile = document.createElement('div');
-        tile.id = "t" + (i + 1);
-        tile.className = "tile";
+  var grid = document.getElementById("grid");
+  if (!grid) {
+    return;
+  }
 
-        grid.append(tile);
-    }
+  for (var i = 0; i < tileCount; i++) {
+    var tile = document.createElement("div");
+    tile.id = "t" + (i + 1);
+    tile.className = "tile";
+    grid.appendChild(tile);
+  }
 });
 
 window.addEventListener("resize",scrollGrid);
@@ -74,8 +79,5 @@ document.addEventListener("click", function (event) {
     return;
   }
 
-  const openedWindow = window.open(url, "_blank", "noopener,noreferrer");
-  if (!openedWindow) {
-    window.location.href = url;
-  }
+  window.open(url, "_blank", "noopener,noreferrer");
 });
