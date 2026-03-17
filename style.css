@@ -678,6 +678,22 @@
   overflow: hidden;
 }    
 
+.project-detail-page .card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.project-detail-page .card__image {
+  background: transparent;
+  padding: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .about_me{
   display: block;
   margin-left: auto;
