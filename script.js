@@ -81,3 +81,51 @@ document.addEventListener("click", function (event) {
 
   window.open(url, "_blank", "noopener,noreferrer");
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cardImages = document.querySelectorAll(".cards .card__image[data-slides]");
+  const slideDelayMs = 3000;
+  const fadeDurationMs = 550;
+
+  const slideshowCards = [];
+
+  cardImages.forEach(function (imageEl) {
+    const slides = (imageEl.getAttribute("data-slides") || "")
+      .split(",")
+      .map(function (path) {
+        return path.trim();
+      })
+      .filter(function (path) {
+        return path.length > 0;
+      });
+
+    if (slides.length < 2) {
+      return;
+    }
+
+    slideshowCards.push({
+      imageEl: imageEl,
+      slides: slides,
+      index: 0
+    });
+  });
+
+  if (slideshowCards.length === 0) {
+    return;
+  }
+
+  let activeCardIndex = 0;
+
+  window.setInterval(function () {
+    const currentCard = slideshowCards[activeCardIndex];
+    currentCard.imageEl.classList.add("is-fading");
+
+    window.setTimeout(function () {
+      currentCard.index = (currentCard.index + 1) % currentCard.slides.length;
+      currentCard.imageEl.src = currentCard.slides[currentCard.index];
+      currentCard.imageEl.classList.remove("is-fading");
+    }, fadeDurationMs);
+
+    activeCardIndex = (activeCardIndex + 1) % slideshowCards.length;
+  }, slideDelayMs);
+});
