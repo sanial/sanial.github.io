@@ -54,3 +54,20 @@ function scrollGrid() {
 	cards.style.setProperty("--scroll",transY + "%");
 }
 scrollGrid();
+
+document.addEventListener("click", function (event) {
+  const icon = event.target.closest(".card__title-icon");
+  if (!icon) {
+    return;
+  }
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  const url = icon.getAttribute("data-url");
+  if (!url || url === "#") {
+    return;
+  }
+
+  window.open(url, "_blank", "noopener,noreferrer");
+});

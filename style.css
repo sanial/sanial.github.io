@@ -179,6 +179,16 @@
     grid-row: row 3;
     /* background: linear-gradient(to right, #fe8c00, #f83600); */
   }
+
+  .grid-container-bubblns{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px 2em;
+    align-content: space-evenly;
+    padding: 120px;
+    /* padding-right: 150px;
+    padding-top: 100px; */
+  }
   /* .circle{
     background-color: red;
     border-color: white;
@@ -515,7 +525,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
   margin: 4rem 5vw;
   padding: 0;
@@ -533,7 +543,13 @@
 
 .card__image {      
   width: 100%;
-  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background-color: #fff;
+  padding: 1rem 1rem 8rem;
+  box-sizing: border-box;
 }
 
 .card__overlay {
@@ -589,30 +605,65 @@
   border-radius: 50%;      
 }
 
+.card__header-text {
+  width: 100%;
+}
+
 .card__title {
   font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.75rem;
   margin: 0 0 .3em;
-  color: #51546a;
+  color: #2f3447;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+
+.card__title-icons {
+  display: inline-flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.card__title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2f3447;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+.card__title-icon:hover {
+  color: #056bca;
 }
 
 .card__tagline {
   display: block;
   margin: 1em 0;
-  font-family: "MockFlowFont";  
+  font-family: 'Quicksand', sans-serif;
   font-size: .8em; 
-  color: #818181;  
+  color: #4a4f61;
+  font-weight: 600;
 }
 
 .card__status {
   font-size: .8em;
-  color: #a4a2a3;
+  color: #4a4f61;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
 }
 
 .card__description {
   padding: 0 2em 2em;
   margin: 0;
-  color: #1e1e1e;
-  font-family: "MockFlowFont";   
+  color: #23252e;
+  font-family: 'Quicksand', sans-serif;   
+  font-weight: 500;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;

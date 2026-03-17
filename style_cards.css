@@ -1,7 +1,7 @@
 :root{
     font-size: 18px;
-    --cardW: 14em;
-    --cardH: 8em;
+    --cardW: 28em;
+    --cardH: 6em;
     --cardZInc: 2em;
 }
 
@@ -105,7 +105,7 @@
 	width: 100%;
 	height: 100%;
   border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 20px;
+  border-radius: 8px;
 }
 .top {
 	transform: translateZ(4px);
