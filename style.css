@@ -596,6 +596,23 @@
   opacity: 0.2;
 }
 
+.card__video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+  display: none;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.28), rgba(13, 38, 58, 0.08));
+  padding: 0.65rem 0.65rem 6rem;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: opacity .55s ease-in-out;
+}
+
+.card__video.is-fading {
+  opacity: 0.2;
+}
+
 .card__overlay {
   position: absolute;
   bottom: 0;

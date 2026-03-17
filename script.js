@@ -84,8 +84,9 @@ document.addEventListener("click", function (event) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const cardImages = document.querySelectorAll(".cards .card__image[data-slides]");
-  const slideDelayMs = 3000;
+  const imageSlideDelayMs = 3000;
   const fadeDurationMs = 550;
+  const videoPattern = /\.(mp4|webm|ogg)(\?.*)?$/i;
 
   const slideshowCards = [];
 
@@ -103,10 +104,23 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    const videoEl = document.createElement("video");
+    videoEl.className = "card__video";
+    videoEl.muted = true;
+    videoEl.loop = false;
+    videoEl.autoplay = true;
+    videoEl.playsInline = true;
+    videoEl.setAttribute("muted", "");
+    videoEl.setAttribute("playsinline", "");
+    videoEl.setAttribute("preload", "metadata");
+    imageEl.insertAdjacentElement("afterend", videoEl);
+
     slideshowCards.push({
       imageEl: imageEl,
+      videoEl: videoEl,
       slides: slides,
-      index: 0
+      index: 0,
+      showingVideo: false
     });
   });
 
@@ -114,18 +128,84 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
+  function isVideoSlide(path) {
+    return videoPattern.test(path);
+  }
+
+  function setSlide(card, slidePath, useFade) {
+    const nextIsVideo = isVideoSlide(slidePath);
+    const activeEl = card.showingVideo ? card.videoEl : card.imageEl;
+
+    function applyMedia() {
+      if (nextIsVideo) {
+        card.imageEl.style.display = "none";
+        card.videoEl.style.display = "block";
+        if (card.videoEl.getAttribute("src") !== slidePath) {
+          card.videoEl.src = slidePath;
+        }
+        card.videoEl.currentTime = 0;
+        const playPromise = card.videoEl.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(function () {});
+        }
+      } else {
+        card.videoEl.pause();
+        card.videoEl.style.display = "none";
+        card.imageEl.style.display = "block";
+        card.imageEl.src = slidePath;
+      }
+
+      card.showingVideo = nextIsVideo;
+      card.imageEl.classList.remove("is-fading");
+      card.videoEl.classList.remove("is-fading");
+    }
+
+    if (!useFade) {
+      applyMedia();
+      return;
+    }
+
+    activeEl.classList.add("is-fading");
+    window.setTimeout(function () {
+      applyMedia();
+    }, fadeDurationMs);
+  }
+
+  slideshowCards.forEach(function (card) {
+    setSlide(card, card.slides[card.index], false);
+  });
+
   let activeCardIndex = 0;
 
-  window.setInterval(function () {
-    const currentCard = slideshowCards[activeCardIndex];
-    currentCard.imageEl.classList.add("is-fading");
-
-    window.setTimeout(function () {
-      currentCard.index = (currentCard.index + 1) % currentCard.slides.length;
-      currentCard.imageEl.src = currentCard.slides[currentCard.index];
-      currentCard.imageEl.classList.remove("is-fading");
-    }, fadeDurationMs);
-
+  function proceedToNextCard() {
     activeCardIndex = (activeCardIndex + 1) % slideshowCards.length;
-  }, slideDelayMs);
+    advanceSlideshowQueue();
+  }
+
+  function waitForVideoToFinish(card) {
+    const videoEl = card.videoEl;
+
+    function onVideoEnded() {
+      videoEl.removeEventListener("ended", onVideoEnded);
+      proceedToNextCard();
+    }
+
+    videoEl.addEventListener("ended", onVideoEnded);
+  }
+
+  function advanceSlideshowQueue() {
+    const currentCard = slideshowCards[activeCardIndex];
+    currentCard.index = (currentCard.index + 1) % currentCard.slides.length;
+    const nextSlidePath = currentCard.slides[currentCard.index];
+    setSlide(currentCard, nextSlidePath, true);
+
+    if (isVideoSlide(nextSlidePath)) {
+      waitForVideoToFinish(currentCard);
+      return;
+    }
+
+    window.setTimeout(proceedToNextCard, imageSlideDelayMs);
+  }
+
+  window.setTimeout(advanceSlideshowQueue, imageSlideDelayMs);
 });
