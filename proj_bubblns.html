@@ -16,19 +16,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
-
-
     <!--files, scripts-->
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 
-
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
@@ -37,169 +29,829 @@
         integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
         crossorigin="anonymous"></script>
 
-
-    <title id="home">Septa App</title>
+    <title>Bubblelines — Sania Latif</title>
 
     <!-- Navigation Bar -->
-    <nav id = "scroll-nav" class="navbar navbar-expand-lg navbar-light ">
+    <nav id="scroll-nav" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid topnav">
-            <a class = "p-4" href="index.html">sania latif</a>
-            
+            <a class="p-4" href="index.html">sania latif</a>
             <span class="navbar-split">
-                <a class = "p-4" href="https://sanial.github.io/#home" ><i class="ri-home-2-line"></i></a>
-                <a class = "p-4" href="https://sanial.github.io/#projects" ><i class="ri-file-code-line"></i></a>
-                <a class = "p-4" href="https://sanial.github.io/#about" ><i class="ri-user-3-line"></i></a>
-                <a class = "p-4" href="#menu"><i class="ri-menu-line"></i></a> 
-        
+                <a class="p-4" href="https://sanial.github.io/#home"><i class="ri-home-2-line"></i></a>
+                <a class="p-4" href="https://sanial.github.io/#projects"><i class="ri-file-code-line"></i></a>
+                <a class="p-4" href="https://sanial.github.io/#about"><i class="ri-user-3-line"></i></a>
+                <a class="p-4" href="#menu"><i class="ri-menu-line"></i></a>
             </span>
         </div>
     </nav>
-    
+
+    <style>
+        /* ============================================================
+           PAGE BACKGROUND
+        ============================================================ */
+        body.synth-lab-page {
+            background:
+                radial-gradient(ellipse 70% 55% at 10% 15%, rgba(200, 210, 218, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 55% 45% at 90% 75%, rgba(180, 195, 210, 0.08) 0%, transparent 60%),
+                linear-gradient(160deg, #f9fafb 0%, #f5f7fa 45%, #f8f9fc 100%);
+            min-height: 100vh;
+        }
+
+        /* ── Page wrapper ──────────────────────── */
+        .sl-page {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2rem 5vw 7rem;
+        }
+
+        /* ── Glass panel base ──────────────────── */
+        .glass {
+            background: rgba(255, 255, 255, 0.38);
+            border: 1px solid rgba(255, 255, 255, 0.62);
+            border-radius: 28px;
+            box-shadow:
+                0 8px 32px rgba(26, 48, 61, 0.10),
+                0 1px 2px rgba(26, 48, 61, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        /* ── Scroll reveal ─────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(.4, 0, .2, 1),
+                        transform 0.7s cubic-bezier(.4, 0, .2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .reveal-d1 { transition-delay: 0.08s; }
+        .reveal-d2 { transition-delay: 0.18s; }
+        .reveal-d3 { transition-delay: 0.28s; }
+        .reveal-d4 { transition-delay: 0.36s; }
+
+        /* ── Section spacing ───────────────────── */
+        .sl-section { margin-bottom: 3.6rem; }
+
+        .sl-section-heading {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: var(--clr-accent-500);
+            margin-bottom: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+        .sl-section-heading i { font-size: 0.9rem; }
+        .sl-section-heading::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(5, 107, 202, 0.22), transparent);
+        }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+        .sl-hero {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2.2rem;
+            align-items: start;
+            padding: 2.8rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sl-hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -80px;
+            width: 380px; height: 380px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(60, 179, 235, 0.16) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .sl-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; left: -50px;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(5, 107, 202, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .sl-hero-label {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--clr-accent-500);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .sl-hero-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: clamp(2.6rem, 5.5vw, 4rem);
+            font-weight: 700;
+            color: var(--clr-font);
+            line-height: 1.08;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .sl-hero-subtitle {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 400;
+            color: #3a5268;
+            max-width: 520px;
+            line-height: 1.75;
+            margin-bottom: 1.8rem;
+        }
+
+        .sl-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.42rem;
+            margin-bottom: 1.9rem;
+        }
+
+        .sl-tag {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: lowercase;
+            letter-spacing: 0.03em;
+            padding: 0.26rem 0.72rem;
+            border-radius: 100px;
+            background: rgba(5, 107, 202, 0.07);
+            border: 1px solid rgba(5, 107, 202, 0.17);
+            color: var(--clr-accent-500);
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .sl-tag:hover {
+            background: rgba(5, 107, 202, 0.15);
+            border-color: rgba(5, 107, 202, 0.38);
+        }
+
+        .sl-cta-row {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .sl-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.42rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.55rem 1.25rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+        .sl-btn:hover { transform: translateY(-2px); text-decoration: none; }
+
+        .sl-btn-primary {
+            background: linear-gradient(135deg, #056bca 0%, #3cb3eb 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 16px rgba(5, 107, 202, 0.3);
+        }
+        .sl-btn-primary:hover {
+            box-shadow: 0 7px 22px rgba(5, 107, 202, 0.42);
+            color: white;
+        }
+
+        .sl-btn-ghost {
+            background: rgba(255, 255, 255, 0.55);
+            color: var(--clr-font);
+            border: 1px solid rgba(26, 48, 61, 0.17);
+        }
+        .sl-btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.82);
+            color: var(--clr-font);
+            box-shadow: 0 4px 14px rgba(26, 48, 61, 0.1);
+        }
+
+        /* Hero right — animated badge */
+        .sl-hero-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.5rem 1.3rem;
+            background: rgba(255, 255, 255, 0.52);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 22px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center;
+            min-width: 110px;
+        }
+
+        .sl-hero-badge .pulse-button {
+            animation: sl-pulse 2.2s infinite;
+        }
+
+        @keyframes sl-pulse {
+            0%   { transform: scale(0.9);  box-shadow: 0 0 0 0   rgba(5, 107, 202, 0.38); }
+            70%  { transform: scale(1.02); box-shadow: 0 0 0 14px rgba(5, 107, 202, 0); }
+            100% { transform: scale(0.9);  box-shadow: 0 0 0 0   rgba(5, 107, 202, 0); }
+        }
+
+        .sl-hero-badge-label {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #5a7080;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* ============================================================
+           CONNECTOR
+        ============================================================ */
+        .sl-connector {
+            width: 1px;
+            height: 2.8rem;
+            background: linear-gradient(to bottom, rgba(5, 107, 202, 0.18), rgba(5, 107, 202, 0.04));
+            margin: -1rem auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================================
+           GALLERY
+        ============================================================ */
+        .sl-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 720px) {
+            .sl-gallery { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .sl-gallery { grid-template-columns: 1fr; }
+        }
+
+        .sl-img-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: zoom-in;
+            background: rgba(255, 255, 255, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            box-shadow: 0 4px 16px rgba(26, 48, 61, 0.09);
+            transition: transform 0.32s cubic-bezier(.4, 0, .2, 1),
+                        box-shadow 0.32s cubic-bezier(.4, 0, .2, 1);
+        }
+        .sl-img-card:hover {
+            transform: scale(1.038) translateY(-4px);
+            box-shadow: 0 14px 36px rgba(26, 48, 61, 0.17);
+        }
+
+        .sl-img-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.25s ease;
+        }
+
+        .sl-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13, 38, 58, 0.55) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.28s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 0.9rem;
+        }
+        .sl-img-card:hover .sl-img-overlay { opacity: 1; }
+
+        .sl-img-overlay span {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.73rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.92);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ============================================================
+           TEXT CARDS  (Problem / Solution)
+        ============================================================ */
+        .sl-text-card {
+            padding: 2.8rem 3rem;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2.2rem;
+            align-items: start;
+        }
+        @media (max-width: 600px) {
+            .sl-text-card {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                padding: 1.8rem 1.6rem;
+            }
+        }
+
+        .sl-card-num {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 5.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: rgba(5, 107, 202, 0.07);
+            user-select: none;
+            letter-spacing: -0.04em;
+            margin-top: -0.3rem;
+        }
+
+        .sl-card-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 1.1rem;
+        }
+        .sl-card-icon-problem {
+            background: rgba(229, 62, 62, 0.09);
+            color: #c0392b;
+            border: 1px solid rgba(229, 62, 62, 0.2);
+        }
+        .sl-card-icon-solution {
+            background: rgba(5, 107, 202, 0.09);
+            color: #056bca;
+            border: 1px solid rgba(5, 107, 202, 0.2);
+        }
+
+        .sl-card-body h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--clr-font);
+            margin: 0 0 0.9rem;
+        }
+
+        .sl-card-body p {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.97rem;
+            font-weight: 400;
+            color: #3a5268;
+            line-height: 1.78;
+            margin: 0;
+        }
+        .sl-card-body p + p { margin-top: 0.85rem; }
+
+        .sl-highlight {
+            display: inline;
+            background: rgba(5, 107, 202, 0.08);
+            border-radius: 5px;
+            padding: 0.05em 0.28em;
+            color: #056bca;
+            font-weight: 700;
+        }
+
+        .sl-solution-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.3rem 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+        .sl-solution-list li {
+            display: flex;
+            gap: 0.65rem;
+            align-items: flex-start;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #3a5268;
+            line-height: 1.65;
+        }
+        .sl-solution-list li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #056bca, #3cb3eb);
+            margin-top: 0.48em;
+        }
+
+        /* ============================================================
+           BACK BUTTON
+        ============================================================ */
+        .sl-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.83rem;
+            font-weight: 700;
+            color: var(--clr-accent-500);
+            text-decoration: none;
+            padding: 0.48rem 1rem;
+            border-radius: 100px;
+            background: rgba(5, 107, 202, 0.06);
+            border: 1px solid rgba(5, 107, 202, 0.14);
+            margin-bottom: 2.2rem;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .sl-back:hover {
+            background: rgba(5, 107, 202, 0.12);
+            border-color: rgba(5, 107, 202, 0.28);
+            transform: translateX(-3px);
+            color: var(--clr-accent-500);
+            text-decoration: none;
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           MODAL / LIGHTBOX SLIDESHOW
+        ══════════════════════════════════════════════════════════ */
+        .sl-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: transparent;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .sl-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .sl-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            height: auto;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: sl-slideshow-in 0.35s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        @keyframes sl-slideshow-in {
+            from { transform: scale(0.92) translateY(20px); opacity: 0; }
+            to   { transform: scale(1) translateY(0);       opacity: 1; }
+        }
+
+        .sl-modal-image-wrap {
+            position: relative;
+            width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .sl-modal-image-wrap img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .sl-modal-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 1.2rem 1.6rem;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.92);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .sl-modal-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+        }
+        .sl-modal-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .sl-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s;
+            backdrop-filter: blur(8px);
+        }
+        .sl-modal-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .sl-modal-prev { left: 1rem; }
+        .sl-modal-next { right: 1rem; }
+
+        .sl-modal-counter {
+            position: absolute;
+            bottom: 1.2rem; right: 1.2rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.75);
+            background: rgba(26, 48, 61, 0.6);
+            padding: 0.4rem 0.8rem;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Responsive hero ────────────────────── */
+        @media (max-width: 680px) {
+            .sl-hero { grid-template-columns: 1fr; padding: 1.8rem; }
+            .sl-hero-badge { display: none; }
+            .sl-hero::before, .sl-hero::after { display: none; }
+        }
+    </style>
 </head>
 
-<body class="project-detail-page">
-              
-    <div class="grid-container">
-        <div class="item-1">
-          <!-- 1 -->
-            <!-- <div class = "img-grid"> -->
+<body class="synth-lab-page">
+    <div class="sl-page">
 
-                
+        <!-- BACK -->
+        <a href="index.html#projects" class="sl-back reveal">
+            <i class="ri-arrow-left-s-line"></i> back to projects
+        </a>
 
-               <h1>bubblelines</h1>   
-
-                <h4>Phase I: UX Process</h4>
-
-                <div class="grid-container-bubblns">
-                    <div>
-                      <h5>Overview</h5>
-                      <p>Bubblelines is a web and mobile friendly application for users to visualize and trade stock options.
-                      </p>
-                    </div>
-                    <div>
-                      <h5>Problem</h5>
-                      <p>
-                        Stock options trading comes with significant cognitive load and the act of interacting
-                        with the system itself and introduce cognitive biases whilst trading.
-                        Users have to keep track of numerous markers, data points, and charts when trading stock options,
-                        which is very difficult to do for a beginner. 
-                      </p>
-                    </div>
-                    <div>
-                      <h5>Solution</h5>
-                      <p>Creating an application that has a beginner friendly dashboard. </p>
-                    </div>
+        <!-- ════════════════════════════════════
+             HERO — Title
+        ════════════════════════════════════ -->
+        <section class="sl-section glass sl-hero reveal">
+            <div>
+                <span class="sl-hero-label">
+                    <i class="ri-bar-chart-2-line"></i>&nbsp;UI/UX &amp; Data Visualization
+                </span>
+                <h1 class="sl-hero-title">Bubblelines</h1>
+                <p class="sl-hero-subtitle">
+                    A web and mobile-friendly application for visualizing and trading stock options with a
+                    playful, beginner-first design — reducing cognitive load so users can focus on decisions,
+                    not the interface.
+                </p>
+                <div class="sl-tags">
+                    <span class="sl-tag">ui/ux</span>
+                    <span class="sl-tag">api integration</span>
+                    <span class="sl-tag">data visualization</span>
                 </div>
-                
-                  
-                
+                <div class="sl-cta-row">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="sl-btn sl-btn-primary">
+                        <i class="ri-github-fill"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <!-- Decorative animated badge -->
+            <div class="sl-hero-badge">
+                <span class="pulse-button"><i class="ri-bubble-chart-line"></i></span>
+                <span class="sl-hero-badge-label">ux design</span>
+            </div>
+        </section>
 
-                
+        <!-- ════════════════════════════════════
+             PICTURES — Gallery
+        ════════════════════════════════════ -->
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-image-line"></i> Screenshots
+            </p>
+            <div class="sl-gallery">
+                <div class="sl-img-card reveal reveal-d1">
+                    <img src="./pics/bubblns-chrt-options-1.png" alt="Bubblelines — options chart" loading="lazy" />
+                    <div class="sl-img-overlay"><span>options chart</span></div>
+                </div>
+                <div class="sl-img-card reveal reveal-d2">
+                    <img src="./pics/bubblns-chrt-options-2.png" alt="Bubblelines — options view" loading="lazy" />
+                    <div class="sl-img-overlay"><span>options view</span></div>
+                </div>
+                <div class="sl-img-card reveal reveal-d3">
+                    <img src="./pics/bubblns-chrt-options-4.png" alt="Bubblelines — chart detail" loading="lazy" />
+                    <div class="sl-img-overlay"><span>chart detail</span></div>
+                </div>
+                <div class="sl-img-card reveal reveal-d4">
+                    <img src="./pics/bubblns-chrt-stock-1.png" alt="Bubblelines — stock dashboard" loading="lazy" />
+                    <div class="sl-img-overlay"><span>stock dashboard</span></div>
+                </div>
+            </div>
+        </section>
 
-                <h4>Phase II: UI Design</h4>
-                  <p>playful design to make it inviting and friendly</p>
+        <!-- ════════════════════════════════════
+             PROBLEM STATEMENT
+        ════════════════════════════════════ -->
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-error-warning-line"></i> Problem Statement
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">01</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-problem">
+                        <i class="ri-error-warning-fill"></i>
+                    </div>
+                    <h2>The Problem</h2>
+                    <p>
+                        Stock options trading comes with significant <span class="sl-highlight">cognitive load</span>.
+                        Existing platforms overwhelm beginners with dense charts, cluttered dashboards, and walls of
+                        numeric data — and the very act of interacting with the interface can introduce
+                        <span class="sl-highlight">cognitive biases</span> whilst trading.
+                    </p>
+                    <p>
+                        Users must simultaneously track multiple markers, data points, and chart types — a near-impossible
+                        task for newcomers, and a friction-heavy experience for seasoned traders who deserve a cleaner,
+                        faster workflow.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-                <!-- <p class="eyebrow" id="list-item-1">PROJECTS</p> -->
-                <ul class="cards">
-                    <li>
-                        <a class="card">
-                            <img src="./pics/bubblns-chrt-options-1.png" class="card__image" alt="" />
-                            
-                        </a>      
-                    </li>
-                    <li>
-                        <a class="card">
-                            <img src="./pics/bubblns-chrt-options-2.png" class="card__image" alt="" />
-                            
-                        </a>      
-                    </li>
-                    <li>
-                      <a class="card">
-                          <img src="./pics/bubblns-chrt-options-4.png" class="card__image" alt="" />
-                          
-                      </a>      
-                  </li>
-                    
-                    <!-- <li>
-                      <a class="card">
-                        <img src="pics/proj1-pic-e.png" class="card__image" alt="" />
-                        
-                      </a>
-                    </li>
-                    <li>
-                      <a class="card">
-                        <img src="pics/proj3-pic-b.png" class="card__image" alt="" />
-                        
-                      </a>
-                    </li>        -->
-                </ul>
+        <!-- ════════════════════════════════════
+             SOLUTION
+        ════════════════════════════════════ -->
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-lightbulb-flash-line"></i> Solution
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">02</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-solution">
+                        <i class="ri-lightbulb-flash-fill"></i>
+                    </div>
+                    <h2>The Solution</h2>
+                    <p>
+                        Bubblelines is a <span class="sl-highlight">beginner-friendly dashboard</span> built around
+                        playful, inviting design — transforming intimidating financial data into approachable,
+                        visually intuitive charts that guide the user rather than overwhelm them.
+                    </p>
+                    <ul class="sl-solution-list">
+                        <li>Simplified options visualization that communicates key data at a glance without noise.</li>
+                        <li>Playful visual design language that lowers the emotional barrier to entry for new traders.</li>
+                        <li>Streamlined dashboard layout deliberately reduces the number of simultaneous cognitive decisions.</li>
+                        <li>Real-time stock data integration via API to keep charts live and accurate.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-                  
-                <h4>Phase III: Software Development</h4>
-                <ul class="cards">
-                  <li>
-                    <a class="card">
-                      <img src="./pics/bubblns-chrt-stock-1.png" class="card__image" alt="" />
-                      
-                    </a>      
-                  </li>
-                  <li>
-                    <a class="card">
-                      <img src="" class="card__image" alt="" />
-                    </a>      
-                  </li>
-                  <li>
-                    <a class="card">
-                      <img src="" class="card__image" alt="" />
-                    </a>      
-                  </li>
-                </ul>
-                  
+    </div><!-- /.sl-page -->
 
-                    
-
-                  
-
-            <!-- </div> -->
-
-        </div>
-        
-           
-            
-
-        <div class="item-3">
-          <!-- 3 -->
-           
-        </div>
-        <div class="item-4">
-          <!-- 4 -->
-          
-            
-        </div>
-        
-        <div class="item-5">
-          <!-- 5 -->
-           
-           
-
-        </div>
-        <div class="item-6">
-          <!-- 6 -->
-
-          
-          
-          <!-- <img src="pics/contour-about-14-a.jpeg" class="about_me" alt="" /> -->
-          
-
-          
-                
-                
-             
-        </div>
-           
+    <!-- LIGHTBOX MODAL -->
+    <div class="sl-modal" id="slModal">
+        <div class="sl-modal-content">
+            <button class="sl-modal-close" id="slModalClose">
+                <i class="ri-close-line"></i>
+            </button>
+            <div class="sl-modal-image-wrap">
+                <img id="slModalImage" src="" alt="" />
+                <div class="sl-modal-caption" id="slModalCaption"></div>
+                <div class="sl-modal-counter" id="slModalCounter"></div>
+            </div>
+            <button class="sl-modal-nav sl-modal-prev" id="slModalPrev">
+                <i class="ri-arrow-left-s-line"></i>
+            </button>
+            <button class="sl-modal-nav sl-modal-next" id="slModalNext">
+                <i class="ri-arrow-right-s-line"></i>
+            </button>
         </div>
     </div>
-</body>
 
+    <script>
+        // Scroll-reveal via IntersectionObserver
+        (function () {
+            var els = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                els.forEach(function (el) { el.classList.add('visible'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            els.forEach(function (el) { io.observe(el); });
+        }());
+
+        // Gallery lightbox slideshow
+        (function () {
+            var modal = document.getElementById('slModal');
+            var modalImage = document.getElementById('slModalImage');
+            var modalCaption = document.getElementById('slModalCaption');
+            var modalCounter = document.getElementById('slModalCounter');
+            var closeBtn = document.getElementById('slModalClose');
+            var prevBtn = document.getElementById('slModalPrev');
+            var nextBtn = document.getElementById('slModalNext');
+            var images = [];
+            var currentIndex = 0;
+
+            document.querySelectorAll('.sl-img-card img').forEach(function (img, idx) {
+                images.push({ src: img.src, alt: img.alt });
+                img.parentElement.addEventListener('click', function () { openModal(idx); });
+            });
+
+            function openModal(index) {
+                currentIndex = index;
+                updateImage();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function updateImage() {
+                if (images.length === 0) return;
+                var img = images[currentIndex];
+                modalImage.src = img.src;
+                modalImage.alt = img.alt;
+                modalCaption.textContent = img.alt;
+                modalCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+            }
+
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            }
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage();
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            nextBtn.addEventListener('click', nextImage);
+            prevBtn.addEventListener('click', prevImage);
+
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) { closeModal(); }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (!modal.classList.contains('active')) return;
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'Escape') closeModal();
+            });
+        }());
+    </script>
+</body>
 
 </html>
