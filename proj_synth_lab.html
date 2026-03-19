@@ -486,6 +486,10 @@
             background: linear-gradient(135deg, #056bca, #3cb3eb);
             margin-top: 0.48em;
         }
+        .sl-solution-list li.sl-subtab {
+            margin-left: 1.25rem;
+            font-size: 0.92rem;
+        }
 
         .sl-sponsors {
             display: grid;
@@ -714,7 +718,7 @@
                 <h1 class="sl-hero-title">Synth Lab</h1>
                 <p class="sl-hero-subtitle">
                     Don't just read research—watch it think.
-                    Fullstack AI agent powered architect that transforms the static text of multiplearXiv papers into
+                    Fullstack AI agent powered architect that transforms the static text of multiple arXiv papers into
                     "living" structural models.
                      
                     Synth Lab is a multimodal "Live Lab Notebook" that doesn't just explain research papers; 
@@ -840,12 +844,12 @@
                         <span class="sl-highlight">complex architectures</span>, methodology flows, and hierarchical
                         relationships buried in text and raw figures — a cognitive bottleneck that slows down understanding
                         and knowledge synthesis, especially in fast-moving fields like
-                        <span class="sl-highlight">ML &amp; AI, </span>.
+                        <span class="sl-highlight">ML &amp; AI, Markets, and Drug Discovery</span>.
                     </p>
                     <p>
                         There was no automated way to instantly convert a paper's structural logic into an interactive,
                         navigable diagram — forcing researchers and engineers to spend hours building mental models that
-                        a ai could generate in seconds.
+                        an AI could generate in seconds.
                     </p>
                 </div>
             </div>
@@ -869,15 +873,21 @@
                     <p>
                         Synth Lab is a fullstack application with an <span class="sl-highlight">AI agent pipeline</span> built on the Google Agent
                         Development Kit that parses arXiv papers end-to-end and synthesises their architecture into
-                        interactive, hierarchical diagrams — turning static research into explorable synthesized diagrams.
+                        interactive, hierarchical diagrams — turning static research into explorable technical synthesis, meta and comparative analysis.
+
                     </p>
                     <ul class="sl-solution-list">
-                        <li>User can search a topic and get the latest research papers pulled from arXiv api; 
+                        <li>Search a topic and get the latest research papers pulled from arXiv api; 
                             the Gemini agent autonomously fetches and parses the full paper text.</li>
                         <li>Agent extracts structural components, methodology steps, and relationships via LLM reasoning.</li>
-                        <li>Renders live, interactive hierarchical charts in React.js, d3.js, and mermaid.js with smooth zoom and pan controls.</li>
+                        <li>Renders live, interactive hierarchical charts in React.js, d3.js, and mermaid.js.</li>
                         <li>Deployed on Google Cloud Run via Docker for scalable, low-latency access from anywhere.</li>
                         <li>Full TypeScript + Node.js back-end with type-safe API integration between the agent and front-end.</li>
+                        <li>The application operates in 4 tabs:</li>
+                        <li class="sl-subtab"><span class="sl-highlight">Technical Synthesis</span> — 1 or more research papers are synthesised into a Mermaid.js Flow Mode chart and a Final Chart, providing a master architectural diagram that consolidates the entire paper into a high-level system overview suitable for research planning and experiment design. Flow Mode lets users visually "unpack" complex research steps, with Sub-diagrams available to drill deeper into specific technical modules.</li>
+                        <li class="sl-subtab"><span class="sl-highlight">Research Agent</span> — Provides further textual analysis and subgraphs for deeper topic understanding.</li>
+                        <li class="sl-subtab"><span class="sl-highlight">Deep Dive</span> — A multimodal view that interleaves D3.js lexical Bubble Maps, providing a meta-analysis of the paper's weight by quantifying word density and thematic importance visually.</li>
+                        <li class="sl-subtab"><span class="sl-highlight">Conceptual Dive</span> — Interleaved charts rendered by an agent that breaks down concepts across multiple research papers, delivering a topic-by-topic comparative analysis.</li>
                     </ul>
                 </div>
             </div>
@@ -904,9 +914,12 @@
                         to structured understanding even faster.
                     </p>
                     <ul class="sl-solution-list">
-                        <li>Multi-paper comparison mode to map overlaps and differences across related architectures.</li>
-                        <li>Higher-fidelity extraction for equations, module dependencies, and evaluation pipelines.</li>
+                        <li>Search for particular papers and uploading your own</li>
+                        <li>Frontier research paper comparative analysis to map overlaps and differences in the research field itself</li>
+                        <li>Higher-fidelity and faster extraction for syntax, equations, module dependencies, and evaluation pipelines.</li>
+                        <li>Deep dive includes visualizations of how topics interrelate with citation structure</li>
                         <li>Export pathways for diagrams and structured summaries into shareable research artifacts.</li>
+                        <li>Even more ambitions? Agent provides future experimental design suggestions</li>
                     </ul>
                 </div>
             </div>
