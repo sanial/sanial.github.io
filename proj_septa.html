@@ -484,6 +484,41 @@
             margin-top: 0.48em;
         }
 
+        .sl-sponsors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.85rem;
+        }
+
+        .sl-sponsor-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.46);
+            border: 1px solid rgba(255, 255, 255, 0.68);
+            box-shadow: 0 4px 16px rgba(26, 48, 61, 0.09);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .sl-sponsor-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .sl-sponsor-name {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--clr-font);
+            letter-spacing: 0.02em;
+        }
+
         /* ============================================================
            BACK BUTTON
         ============================================================ */
@@ -658,7 +693,7 @@
         <section class="sl-section glass sl-hero reveal">
             <div>
                 <span class="sl-hero-label">
-                    <i class="ri-trophy-line"></i>&nbsp;🏆 1st Place — Septa &amp; Temple Fox School of Business
+                    <i class="ri-trophy-line"></i>&nbsp;🏆 1st Place $2000 — Septa &amp; Temple Fox School of Business
                 </span>
                 <h1 class="sl-hero-title">Septa Commuter App</h1>
                 <p class="sl-hero-subtitle">
@@ -728,6 +763,14 @@
                     <img src="./pics/proj2-extra8.jpg" alt="Septa App — UI design" loading="lazy" />
                     <div class="sl-img-overlay"><span>ui design</span></div>
                 </div>
+                <div class="sl-img-card reveal reveal-d4">
+                    <img src="./pics/septa2.jpg" alt="Septa App — Judging" loading="lazy" />
+                    <div class="sl-img-overlay"><span>Judging</span></div>
+                </div>
+                <div class="sl-img-card reveal reveal-d4">
+                    <img src="./pics/septa.jpg" alt="Septa App — WIN!" loading="lazy" />
+                    <div class="sl-img-overlay"><span>WIN!</span></div>
+                </div>
             </div>
         </section>
 
@@ -788,6 +831,55 @@
                         <li>UX process grounded in user research — competitive analysis, journey mapping, and usability testing.</li>
                         <li>Built in Flutter/Dart for a single cross-platform codebase targeting iOS and Android.</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════
+             FUTURE
+        ════════════════════════════════════ -->
+        <!-- <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-rocket-line"></i> Future
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">04</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-solution">
+                        <i class="ri-rocket-fill"></i>
+                    </div>
+                    <h2>Future</h2>
+                    <p>
+                        Next iterations will focus on commuter personalization, service disruption
+                        prediction, and deeper route planning to make the experience even faster
+                        and more useful during high-stress travel moments.
+                    </p>
+                    <ul class="sl-solution-list">
+                        <li>Saved frequent routes, commute-time alerts, and adaptive home-screen shortcuts.</li>
+                        <li>Smarter transfer planning with delay-aware recommendations across lines.</li>
+                        <li>Accessibility upgrades, including stronger visual contrast and simplified live status views.</li>
+                    </ul>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- ════════════════════════════════════
+             SPONSORS
+        ════════════════════════════════════ -->
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-hand-heart-line"></i> Sponsors
+            </p>
+            <div class="sl-sponsors">
+                <div class="sl-sponsor-chip reveal reveal-d1">
+                    <img class="sl-sponsor-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/SEPTA_text.svg" alt="SEPTA logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">SEPTA</span>
+                </div>
+                <div class="sl-sponsor-chip reveal reveal-d3">
+                    <img class="sl-sponsor-logo" src="https://sportslogohistory.com/wp-content/uploads/2021/06/temple_owls_2020-pres.png" alt="Fox School of Business logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">Temple University Fox School of Business</span>
                 </div>
             </div>
         </section>

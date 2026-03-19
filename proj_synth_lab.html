@@ -487,6 +487,41 @@
             margin-top: 0.48em;
         }
 
+        .sl-sponsors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.85rem;
+        }
+
+        .sl-sponsor-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.46);
+            border: 1px solid rgba(255, 255, 255, 0.68);
+            box-shadow: 0 4px 16px rgba(26, 48, 61, 0.09);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .sl-sponsor-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .sl-sponsor-name {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--clr-font);
+            letter-spacing: 0.02em;
+        }
+
         /* ============================================================
            BACK BUTTON
         ============================================================ */
@@ -840,6 +875,51 @@
                         <li>Deployed on Google Cloud Run via Docker for scalable, low-latency access from anywhere.</li>
                         <li>Full TypeScript + Node.js back-end with type-safe API integration between the agent and front-end.</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════
+             FUTURE
+        ════════════════════════════════════ -->
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-rocket-line"></i> Future
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">04</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-solution">
+                        <i class="ri-rocket-fill"></i>
+                    </div>
+                    <h2>Future</h2>
+                    <p>
+                        Next milestones focus on scaling the agent workflow, improving synthesis quality,
+                        and broadening visualization output formats so researchers can move from reading
+                        to structured understanding even faster.
+                    </p>
+                    <ul class="sl-solution-list">
+                        <li>Multi-paper comparison mode to map overlaps and differences across related architectures.</li>
+                        <li>Higher-fidelity extraction for equations, module dependencies, and evaluation pipelines.</li>
+                        <li>Export pathways for diagrams and structured summaries into shareable research artifacts.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════
+             SPONSORS
+        ════════════════════════════════════ -->
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-hand-heart-line"></i> Sponsors
+            </p>
+            <div class="sl-sponsors">
+                <div class="sl-sponsor-chip reveal reveal-d2">
+                    <img class="sl-sponsor-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/250px-Google_Gemini_icon_2025.svg.png" alt="Gemini logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">Google Gemini</span>
                 </div>
             </div>
         </section>

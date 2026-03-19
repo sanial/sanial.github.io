@@ -459,6 +459,41 @@
             margin-top: 0.48em;
         }
 
+        .sl-sponsors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.85rem;
+        }
+
+        .sl-sponsor-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.46);
+            border: 1px solid rgba(255, 255, 255, 0.68);
+            box-shadow: 0 4px 16px rgba(26, 48, 61, 0.09);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .sl-sponsor-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .sl-sponsor-name {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--clr-font);
+            letter-spacing: 0.02em;
+        }
+
         /* ============================================================
            BACK BUTTON
         ============================================================ */
@@ -746,6 +781,58 @@
                 </div>
             </div>
         </section>
+
+        <!-- ════════════════════════════════════
+             FUTURE
+        ════════════════════════════════════ -->
+        <!-- <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-rocket-line"></i> Future
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">04</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-solution">
+                        <i class="ri-rocket-fill"></i>
+                    </div>
+                    <h2>Future</h2>
+                    <p>
+                        Future iterations will focus on richer strategy exploration, clearer comparison views,
+                        and more personalized onboarding so users can move from confusion to confidence even faster.
+                    </p>
+                    <ul class="sl-solution-list">
+                        <li>Custom watchlists and scenario presets for frequently tracked option chains.</li>
+                        <li>Expanded educational overlays that explain risk, volatility, and payoff behavior in context.</li>
+                        <li>Deeper analytics modules to compare strategies side-by-side with minimal cognitive load.</li>
+                    </ul>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- ════════════════════════════════════
+             SPONSORS
+        ════════════════════════════════════ -->
+        <!-- <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-hand-heart-line"></i> Sponsors
+            </p>
+            <div class="sl-sponsors">
+                <div class="sl-sponsor-chip reveal reveal-d1">
+                    <img class="sl-sponsor-logo" src="https://logo.clearbit.com/tradingview.com" alt="TradingView logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">TradingView</span>
+                </div>
+                <div class="sl-sponsor-chip reveal reveal-d2">
+                    <img class="sl-sponsor-logo" src="https://logo.clearbit.com/polygon.io" alt="Polygon.io logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">Polygon.io</span>
+                </div>
+                <div class="sl-sponsor-chip reveal reveal-d3">
+                    <img class="sl-sponsor-logo" src="https://logo.clearbit.com/github.com" alt="GitHub logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">GitHub</span>
+                </div>
+            </div>
+        </section> -->
 
     </div><!-- /.sl-page -->
 
