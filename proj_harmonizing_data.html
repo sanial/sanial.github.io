@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <!--files, scripts-->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script>
+
+    <title>Harmonizing the Data of Your Data — Sania Latif</title>
+
+    <!-- Navigation Bar -->
+    <nav id="scroll-nav" class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid topnav">
+            <a class="p-4" href="index.html">sania latif</a>
+            <span class="navbar-split">
+                <a class="p-4" href="https://sanial.github.io/#home"><i class="ri-home-2-line"></i></a>
+                <a class="p-4" href="https://sanial.github.io/#projects"><i class="ri-file-code-line"></i></a>
+                <a class="p-4" href="https://sanial.github.io/#about"><i class="ri-user-3-line"></i></a>
+                <a class="p-4" href="#menu"><i class="ri-menu-line"></i></a>
+            </span>
+        </div>
+    </nav>
+
+    <style>
+        body.synth-lab-page {
+            background:
+                radial-gradient(ellipse 70% 55% at 8% 16%, rgba(41, 103, 163, 0.14) 0%, transparent 60%),
+                radial-gradient(ellipse 55% 45% at 92% 72%, rgba(99, 164, 115, 0.12) 0%, transparent 60%),
+                linear-gradient(160deg, #f6faf8 0%, #f4f8fb 50%, #fbfcfd 100%);
+            min-height: 100vh;
+        }
+
+        .sl-page {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2rem 5vw 7rem;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.68);
+            border-radius: 28px;
+            box-shadow:
+                0 8px 32px rgba(26, 48, 61, 0.10),
+                0 1px 2px rgba(26, 48, 61, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(.4, 0, .2, 1),
+                        transform 0.7s cubic-bezier(.4, 0, .2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .reveal-d1 { transition-delay: 0.08s; }
+        .reveal-d2 { transition-delay: 0.18s; }
+        .reveal-d3 { transition-delay: 0.28s; }
+        .reveal-d4 { transition-delay: 0.36s; }
+
+        .sl-section { margin-bottom: 3.6rem; }
+
+        .sl-section-heading {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: var(--clr-accent-500);
+            margin-bottom: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+        .sl-section-heading i { font-size: 0.9rem; }
+        .sl-section-heading::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(5, 107, 202, 0.22), transparent);
+        }
+
+        .sl-hero {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2.2rem;
+            align-items: start;
+            padding: 2.8rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sl-hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -80px;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(77, 148, 108, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .sl-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -50px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(5, 107, 202, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .sl-hero-label {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--clr-accent-500);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .sl-hero-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+            font-weight: 700;
+            color: var(--clr-font);
+            line-height: 1.08;
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+            max-width: 780px;
+        }
+
+        .sl-hero-subtitle {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 400;
+            color: #3a5268;
+            max-width: 560px;
+            line-height: 1.75;
+            margin-bottom: 1.8rem;
+        }
+
+        .sl-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.42rem;
+            margin-bottom: 1.9rem;
+        }
+
+        .sl-tag {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: lowercase;
+            letter-spacing: 0.03em;
+            padding: 0.26rem 0.72rem;
+            border-radius: 100px;
+            background: rgba(5, 107, 202, 0.07);
+            border: 1px solid rgba(5, 107, 202, 0.17);
+            color: var(--clr-accent-500);
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .sl-tag:hover {
+            background: rgba(5, 107, 202, 0.15);
+            border-color: rgba(5, 107, 202, 0.38);
+        }
+
+        .sl-cta-row {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .sl-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.42rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.55rem 1.25rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+        .sl-btn:hover { transform: translateY(-2px); text-decoration: none; }
+
+        .sl-btn-primary {
+            background: linear-gradient(135deg, #0a6a93 0%, #3bb26b 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 16px rgba(10, 106, 147, 0.28);
+        }
+        .sl-btn-primary:hover {
+            box-shadow: 0 7px 22px rgba(10, 106, 147, 0.38);
+            color: white;
+        }
+
+        .sl-btn-ghost {
+            background: rgba(255, 255, 255, 0.55);
+            color: var(--clr-font);
+            border: 1px solid rgba(26, 48, 61, 0.17);
+        }
+        .sl-btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.82);
+            color: var(--clr-font);
+            box-shadow: 0 4px 14px rgba(26, 48, 61, 0.1);
+        }
+
+        .sl-hero-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.5rem 1.3rem;
+            background: rgba(255, 255, 255, 0.52);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 22px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center;
+            min-width: 126px;
+        }
+
+        .sl-hero-badge .pulse-button {
+            animation: sl-pulse 2.2s infinite;
+        }
+
+        @keyframes sl-pulse {
+            0%   { transform: scale(0.9);  box-shadow: 0 0 0 0 rgba(59, 178, 107, 0.34); }
+            70%  { transform: scale(1.02); box-shadow: 0 0 0 14px rgba(59, 178, 107, 0); }
+            100% { transform: scale(0.9);  box-shadow: 0 0 0 0 rgba(59, 178, 107, 0); }
+        }
+
+        .sl-hero-badge-label {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #5a7080;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .sl-connector {
+            width: 1px;
+            height: 2.8rem;
+            background: linear-gradient(to bottom, rgba(5, 107, 202, 0.18), rgba(5, 107, 202, 0.04));
+            margin: -1rem auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sl-feature-wrap {
+            padding: 1.2rem;
+        }
+
+        .sl-feature-card {
+            overflow: hidden;
+            border-radius: 22px;
+            background: linear-gradient(145deg, rgba(244, 250, 247, 0.9), rgba(235, 242, 248, 0.88));
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            box-shadow: 0 14px 30px rgba(26, 48, 61, 0.10);
+        }
+
+        .sl-feature-card img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        .sl-feature-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            padding: 1.1rem 1.4rem 1.35rem;
+        }
+
+        .sl-feature-meta-four {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .sl-metric {
+            padding: 0.9rem 1rem;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.68);
+            border: 1px solid rgba(255, 255, 255, 0.82);
+        }
+
+        .sl-metric-label {
+            display: block;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #6a849a;
+            margin-bottom: 0.45rem;
+        }
+
+        .sl-metric-value {
+            display: block;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--clr-font);
+            line-height: 1.5;
+        }
+
+        .sl-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .sl-gallery-single {
+            grid-template-columns: 1fr;
+        }
+        @media (max-width: 720px) {
+            .sl-gallery { grid-template-columns: 1fr; }
+        }
+
+        .sl-img-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: zoom-in;
+            background: rgba(255, 255, 255, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            box-shadow: 0 4px 16px rgba(26, 48, 61, 0.09);
+            transition: transform 0.32s cubic-bezier(.4, 0, .2, 1),
+                        box-shadow 0.32s cubic-bezier(.4, 0, .2, 1);
+        }
+        .sl-img-card:hover {
+            transform: scale(1.028) translateY(-4px);
+            box-shadow: 0 14px 36px rgba(26, 48, 61, 0.17);
+        }
+
+        .sl-img-card img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sl-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13, 38, 58, 0.58) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.28s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 0.9rem;
+        }
+        .sl-img-card:hover .sl-img-overlay { opacity: 1; }
+
+        .sl-img-overlay span {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.73rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.92);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .sl-text-card {
+            padding: 2.8rem 3rem;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2.2rem;
+            align-items: start;
+        }
+        @media (max-width: 600px) {
+            .sl-text-card {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                padding: 1.8rem 1.6rem;
+            }
+        }
+
+        .sl-card-num {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 5.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: rgba(5, 107, 202, 0.07);
+            user-select: none;
+            letter-spacing: -0.04em;
+            margin-top: -0.3rem;
+        }
+
+        .sl-card-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 1.1rem;
+        }
+        .sl-card-icon-problem {
+            background: rgba(229, 62, 62, 0.09);
+            color: #c0392b;
+            border: 1px solid rgba(229, 62, 62, 0.2);
+        }
+        .sl-card-icon-solution {
+            background: rgba(5, 107, 202, 0.09);
+            color: #056bca;
+            border: 1px solid rgba(5, 107, 202, 0.2);
+        }
+
+        .sl-card-body h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--clr-font);
+            margin: 0 0 0.9rem;
+        }
+
+        .sl-card-body p {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.97rem;
+            font-weight: 400;
+            color: #3a5268;
+            line-height: 1.78;
+            margin: 0;
+        }
+        .sl-card-body p + p { margin-top: 0.85rem; }
+
+        .sl-highlight {
+            display: inline;
+            background: rgba(5, 107, 202, 0.08);
+            border-radius: 5px;
+            padding: 0.05em 0.28em;
+            color: #056bca;
+            font-weight: 700;
+        }
+
+        .sl-solution-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.3rem 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+        .sl-solution-list li {
+            display: flex;
+            gap: 0.65rem;
+            align-items: flex-start;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #3a5268;
+            line-height: 1.65;
+        }
+        .sl-solution-list li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #056bca, #3cb3eb);
+            margin-top: 0.48em;
+        }
+
+        .sl-sponsors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.85rem;
+        }
+
+        .sl-sponsor-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.95rem 1rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.46);
+            border: 1px solid rgba(255, 255, 255, 0.68);
+            box-shadow: 0 4px 16px rgba(26, 48, 61, 0.09);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .sl-sponsor-logo {
+            width: 88px;
+            height: 88px;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 6px;
+        }
+
+        .sl-sponsor-name {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--clr-font);
+            letter-spacing: 0.02em;
+        }
+
+        .sl-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.83rem;
+            font-weight: 700;
+            color: var(--clr-accent-500);
+            text-decoration: none;
+            padding: 0.48rem 1rem;
+            border-radius: 100px;
+            background: rgba(5, 107, 202, 0.06);
+            border: 1px solid rgba(5, 107, 202, 0.14);
+            margin-bottom: 2.2rem;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .sl-back:hover {
+            background: rgba(5, 107, 202, 0.12);
+            border-color: rgba(5, 107, 202, 0.28);
+            transform: translateX(-3px);
+            color: var(--clr-accent-500);
+            text-decoration: none;
+        }
+
+        .sl-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: transparent;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .sl-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .sl-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            height: auto;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: sl-slideshow-in 0.35s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        @keyframes sl-slideshow-in {
+            from {
+                transform: scale(0.92) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .sl-modal-image-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .sl-modal-image-wrap img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .sl-modal-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.2rem 1.6rem;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.92);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .sl-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+        }
+        .sl-modal-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .sl-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s;
+            backdrop-filter: blur(8px);
+        }
+        .sl-modal-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .sl-modal-prev { left: 1rem; }
+        .sl-modal-next { right: 1rem; }
+
+        .sl-modal-counter {
+            position: absolute;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.75);
+            background: rgba(26, 48, 61, 0.6);
+            padding: 0.4rem 0.8rem;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 760px) {
+            .sl-feature-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .sl-hero { grid-template-columns: 1fr; padding: 1.8rem; }
+            .sl-hero-badge { display: none; }
+            .sl-hero::before, .sl-hero::after { display: none; }
+        }
+    </style>
+</head>
+
+<body class="synth-lab-page">
+    <div class="sl-page">
+
+        <a href="index.html#projects" class="sl-back reveal">
+            <i class="ri-arrow-left-s-line"></i> back to projects
+        </a>
+
+        <section class="sl-section glass sl-hero reveal">
+            <div>
+                <span class="sl-hero-label">
+                    <i class="ri-flask-line"></i>&nbsp;Kaggle Competition 2026
+                </span>
+                <h1 class="sl-hero-title">Harmonizing the Data of Your Data</h1>
+                <p class="sl-hero-subtitle">
+                    Built an end-to-end NLP pipeline for the Kaggle proteomics metadata extraction challenge,
+                    turning unstructured scientific papers into machine-readable SDRF annotations. The system combines
+                    domain metadata retrieval, transformer-based entity detection, and ontology linking to recover
+                    experimental context at scale.
+                </p>
+                <div class="sl-tags">
+                    <span class="sl-tag">python</span>
+                    <span class="sl-tag">nlp</span>
+                    <span class="sl-tag">pubmedbert</span>
+                    <span class="sl-tag">named entity recognition</span>
+                    <span class="sl-tag">pride api</span>
+                    <span class="sl-tag">ontology linking</span>
+                    <span class="sl-tag">kaggle</span>
+                </div>
+                <div class="sl-cta-row">
+                    <a href="https://github.com/sanial/Kaggle-Harmonizing-the-data-of-your-data" target="_blank"
+                        rel="noopener noreferrer" class="sl-btn sl-btn-primary">
+                        <i class="ri-github-fill"></i> GitHub
+                    </a>
+                    <a href="https://www.kaggle.com/competitions/harmonizing-the-data-of-your-data/overview" target="_blank"
+                        rel="noopener noreferrer" class="sl-btn sl-btn-ghost">
+                        <i class="ri-external-link-line"></i> Kaggle Challenge
+                    </a>
+                </div>
+            </div>
+            <div class="sl-hero-badge">
+                <span class="pulse-button"><i class="ri-database-2-line"></i></span>
+                <span class="sl-hero-badge-label">77 SDRF fields</span>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-layout-grid-line"></i> Project Snapshot
+            </p>
+            <div class="glass sl-feature-wrap">
+                <div class="sl-feature-card">
+                    <img src="./pics/harmonizing-data-header.png" alt="Harmonizing the Data of Your Data project header" loading="lazy" />
+                    <div class="sl-feature-meta">
+                        <div class="sl-metric">
+                            <span class="sl-metric-label">Challenge</span>
+                            <span class="sl-metric-value">Extract structured SDRF metadata from proteomics papers</span>
+                        </div>
+                        <div class="sl-metric">
+                            <span class="sl-metric-label">Evaluation</span>
+                            <span class="sl-metric-value">Macro-averaged F1 across SDRF fields after string harmonization</span>
+                        </div>
+                        <div class="sl-metric">
+                            <span class="sl-metric-label">Pipeline</span>
+                            <span class="sl-metric-value">PRIDE enrichment, PubMedBert, NER, entity linking, CSV generation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-image-line"></i> Screenshots
+            </p>
+            <div class="sl-gallery">
+                <div class="sl-img-card reveal reveal-d1">
+                    <img src="./pics/harmonizing-data-header.png" alt="Harmonizing the Data of Your Data - pipeline overview" loading="lazy" />
+                    <div class="sl-img-overlay"><span>pipeline overview</span></div>
+                </div>
+                <div class="sl-img-card reveal reveal-d2">
+                    <img src="./pics/harmonizing-data-scoreboard2.png" alt="Harmonizing the Data of Your Data - Kaggle leaderboard snapshot" loading="lazy" />
+                    <div class="sl-img-overlay"><span>leaderboard snapshot</span></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-trophy-line"></i> Leaderboard Snapshot
+            </p>
+            <div class="glass sl-feature-wrap">
+                <div class="sl-feature-card">
+                    <div class="sl-feature-meta sl-feature-meta-four">
+                        <div class="sl-metric">
+                            <span class="sl-metric-label">Rank</span>
+                            <span class="sl-metric-value">89 / 250 teams</span>
+                        </div>
+                        <div class="sl-metric">
+                            <span class="sl-metric-label">Score</span>
+                            <span class="sl-metric-value">0.27551 macro F1</span>
+                        </div>
+                        <div class="sl-metric">
+                            <span class="sl-metric-label">Submissions</span>
+                            <span class="sl-metric-value">20</span>
+                        </div>
+                        <div class="sl-metric">
+                            <span class="sl-metric-label">Snapshot</span>
+                            <span class="sl-metric-value">22d before close</span>
+                        </div>
+                    </div>
+                    <div class="sl-feature-meta" style="grid-template-columns: 1fr; padding-top: 0;">
+                        <div class="sl-metric">
+                            <span class="sl-metric-label">Context</span>
+                            <span class="sl-metric-value">Placed 89th out of 250 teams. The score reflects the competition's macro-averaged F1 metric across SDRF fields, so it captures how well the pipeline recovered the right metadata values across many annotation columns rather than matching a single label or exact row output.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-error-warning-line"></i> Problem Statement
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">01</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-problem">
+                        <i class="ri-error-warning-fill"></i>
+                    </div>
+                    <h2>The Problem</h2>
+                    <p>
+                        Scientific articles describe experimental context in prose, not in a format that downstream systems
+                        can reliably query. In proteomics, that missing structure blocks reuse because datasets need
+                        <span class="sl-highlight">Sample and Data Relationship Format (SDRF)</span> annotations to encode
+                        samples, treatments, instruments, and analysis conditions.
+                    </p>
+                    <p>
+                        The Kaggle challenge asked competitors to read publications and reconstruct those SDRF fields automatically.
+                        That means recovering the right entities from dense domain text while staying consistent with the exact
+                        submission schema used for leaderboard scoring.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-lightbulb-flash-line"></i> Solution
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">02</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-solution">
+                        <i class="ri-lightbulb-flash-fill"></i>
+                    </div>
+                    <h2>The Solution</h2>
+                    <p>
+                        I built a <span class="sl-highlight">hybrid metadata extraction pipeline</span> designed around the competition's
+                        training data, SDRF template, and scoring function. The workflow enriches publication context, extracts candidate
+                        entities, links them to ontology-backed labels, and emits structured CSV outputs ready for local scoring and Kaggle submission.
+                    </p>
+                    <ul class="sl-solution-list">
+                        <li>Used PRIDE-linked metadata and publication text preprocessing to create stronger context before extraction.</li>
+                        <li>Applied PubMedBert-driven NLP components and NER to detect domain-specific entities inside proteomics papers.</li>
+                        <li>Performed ontology and term normalization with OLS-style entity linking so predicted labels better matched SDRF expectations.</li>
+                        <li>Generated predictions across 77 metadata columns, aligned to the sample submission schema used by the competition.</li>
+                        <li>Kept the workflow reproducible with scripts for train, infer, and score so experiments could be iterated quickly.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-bar-chart-grouped-line"></i> Evaluation
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">03</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-solution">
+                        <i class="ri-line-chart-fill"></i>
+                    </div>
+                    <h2>How It Was Measured</h2>
+                    <p>
+                        The leaderboard did not reward exact row-by-row reconstruction. Instead, scores were computed as a
+                        <span class="sl-highlight">macro-averaged F1</span> over unique annotation values for each publication and SDRF column,
+                        after clustering near-matching strings by similarity. That made recall, normalization, and false-positive control all matter.
+                    </p>
+                    <ul class="sl-solution-list">
+                        <li>Grouped predictions by publication ID and metadata column before comparison.</li>
+                        <li>Harmonized close text variants with similarity-based clustering to tolerate minor wording differences.</li>
+                        <li>Used the repository scorer locally to inspect per-column metrics and refine extraction quality.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-book-open-line"></i> What I Learned
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">04</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-solution">
+                        <i class="ri-book-2-fill"></i>
+                    </div>
+                    <h2>What I Learned</h2>
+                    <p>
+                        This project made it clear that competitive NLP on scientific documents depends as much on
+                        schema discipline and normalization as it does on the model itself. Getting useful leaderboard
+                        movement required tighter iteration between extraction, validation, and error analysis.
+                    </p>
+                    <ul class="sl-solution-list">
+                        <li>Leaderboard metrics were heavily shaped by normalization quality, not just raw entity detection.</li>
+                        <li>Scientific metadata extraction works better when domain APIs and ontologies are used as structured priors.</li>
+                        <li>Local scoring was essential for debugging because column-level failures were often hidden in aggregate output.</li>
+                        <li>Hybrid pipelines were more practical here than relying on a single model stage to solve every extraction problem.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-hand-heart-line"></i> Sponsors
+            </p>
+            <div class="sl-sponsors">
+                <div class="sl-sponsor-chip reveal reveal-d1">
+                    <img class="sl-sponsor-logo" src="https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F19243414%2F3b1bf317f79f29fa40f950897a31438d%2FNCEMS%20Logo%201.svg?generation=1768577923940031&alt=media" alt="NCEMS logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">NSF National Center for the Emergence of Molecular and Cellular Sciences</span>
+                </div>
+                <div class="sl-sponsor-chip reveal reveal-d2">
+                    <img class="sl-sponsor-logo" src="https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F19243414%2Fff95910f039713b48a2e86fa9f939147%2FICDS%20preferred%20mark%20-%20for%20white%20or%20light%20colored%20background%20-%20PSU_CDS_RGB_2C%20(1).png?generation=1769823718725550&alt=media" alt="ICDS logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">Penn State Institute for Computational and Data Sciences</span>
+                </div>
+                <div class="sl-sponsor-chip reveal reveal-d3">
+                    <img class="sl-sponsor-logo" src="https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F19243414%2F14debbcc306604440c43416d7eecab33%2Fhuck-logo.png?generation=1769175093078478&alt=media" alt="Huck Institutes logo" loading="lazy" decoding="async" />
+                    <span class="sl-sponsor-name">The Huck Institutes of the Life Sciences</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="sl-modal" id="slModal">
+        <div class="sl-modal-content">
+            <button class="sl-modal-close" id="slModalClose">
+                <i class="ri-close-line"></i>
+            </button>
+            <div class="sl-modal-image-wrap">
+                <img id="slModalImage" src="" alt="" />
+                <div class="sl-modal-caption" id="slModalCaption"></div>
+                <div class="sl-modal-counter" id="slModalCounter"></div>
+            </div>
+            <button class="sl-modal-nav sl-modal-prev" id="slModalPrev">
+                <i class="ri-arrow-left-s-line"></i>
+            </button>
+            <button class="sl-modal-nav sl-modal-next" id="slModalNext">
+                <i class="ri-arrow-right-s-line"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var els = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                els.forEach(function (el) { el.classList.add('visible'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            els.forEach(function (el) { io.observe(el); });
+        }());
+
+        (function () {
+            var modal = document.getElementById('slModal');
+            var modalImage = document.getElementById('slModalImage');
+            var modalCaption = document.getElementById('slModalCaption');
+            var modalCounter = document.getElementById('slModalCounter');
+            var closeBtn = document.getElementById('slModalClose');
+            var prevBtn = document.getElementById('slModalPrev');
+            var nextBtn = document.getElementById('slModalNext');
+            var images = [];
+            var currentIndex = 0;
+
+            document.querySelectorAll('.sl-img-card img').forEach(function (img, idx) {
+                images.push({
+                    src: img.src,
+                    alt: img.alt
+                });
+                img.parentElement.addEventListener('click', function () {
+                    openModal(idx);
+                });
+            });
+
+            function openModal(index) {
+                currentIndex = index;
+                updateImage();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function updateImage() {
+                if (images.length === 0) return;
+                var img = images[currentIndex];
+                modalImage.src = img.src;
+                modalImage.alt = img.alt;
+                modalCaption.textContent = img.alt;
+                modalCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+            }
+
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            }
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage();
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            nextBtn.addEventListener('click', nextImage);
+            prevBtn.addEventListener('click', prevImage);
+
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (!modal.classList.contains('active')) return;
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'Escape') closeModal();
+            });
+        }());
+    </script>
+</body>
+
+</html>
