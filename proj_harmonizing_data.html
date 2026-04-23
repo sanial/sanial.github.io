@@ -870,7 +870,7 @@
                     </div>
                     <h2>The Pipeline</h2>
                     <p>
-                        Notebook 16 is built around a <span class="sl-highlight">hierarchy of trust</span> - each stage only runs if the previous one
+                        Notebook 16 is built around a <span class="sl-highlight">hierarchy of trust</span>, each stage only runs if the previous one
                         could not confidently fill a column. When a test paper came in, the pipeline worked in this order:
                     </p>
                     <ul class="sl-solution-list">
@@ -898,19 +898,19 @@
                     </div>
                     <h2>What Didn't Work</h2>
                     <p>
-                        The highest-scoring notebook was not the most sophisticated - it was the one that stopped trying to be clever and deferred to authoritative sources instead.
+                        The highest-scoring notebook was not the most sophisticated, it was the one that stopped trying to be clever and deferred to authoritative sources instead.
                     </p>
                     <p>
-                        Early iterations used hand-coded ontology dictionaries to normalize extracted values. Notebook 11 represented the most complete version of this approach - exhaustive lookup tables mapping tissue names, instruments, and reagents to their SDRF canonical strings across 65 tissue entries, 30 instrument entries, and 26 cleavage agent synonyms. It scored reasonably well, but every normalization decision was a manual guess about what the competition expected. The dictionary could not handle format variants automatically - "Blood Serum", "blood serum", and "EDTA plasma" all needed to resolve to the same UBERON node (NT=blood serum;AC=UBERON:0001977), and any miss scored zero for that column.
+                        Early iterations used hand-coded ontology dictionaries to normalize extracted values. Notebook 11 represented the most complete version of this approach, exhaustive lookup tables mapping tissue names, instruments, and reagents to their SDRF canonical strings across 65 tissue entries, 30 instrument entries, and 26 cleavage agent synonyms. It scored reasonably well, but every normalization decision was a manual guess about what the competition expected. The dictionary could not handle format variants automatically, "Blood Serum", "blood serum", and "EDTA plasma" all needed to resolve to the same UBERON node (NT=blood serum;AC=UBERON:0001977), and any miss scored zero for that column.
                     </p>
                     <p>
                         The middle notebooks introduced PubMedBERT for entity extraction, expecting a transformer trained on biomedical text to outperform regex. It did not. BERT consistently overwrote values that the PRIDE API had already gotten right, replacing authoritative metadata with confident wrong guesses. A model that does not know what it does not know is worse than no model at all in a schema-strict scoring environment.
                     </p>
                     <p>
-                        Notebook 16 dropped BERT entirely and replaced the static dictionaries with live OLS4 API queries - asking EBI's actual ontology lookup service to resolve terms at runtime. Since the competition scoring was built on the same ontologies OLS serves, alignment improved immediately. The pipeline stopped generating answers and started retrieving them.
+                        Notebook 16 dropped BERT entirely and replaced the static dictionaries with live OLS4 API queries, asking EBI's actual ontology lookup service to resolve terms at runtime. Since the competition scoring was built on the same ontologies OLS serves, alignment improved immediately. The pipeline stopped generating answers and started retrieving them.
                     </p>
                     <p>
-                        One thing I'd do differently from the start: study prior winning solutions earlier. The Coleridge Initiative competition tackled similar scientific entity extraction problems - those pipelines would have pointed toward authoritative source alignment weeks before I found it through trial and error.
+                        One thing I'd do differently from the start: study prior winning solutions earlier. The Coleridge Initiative competition tackled similar scientific entity extraction problems, those pipelines would have pointed toward authoritative source alignment weeks before I found it through trial and error.
                     </p>
                 </div>
             </div>
@@ -955,13 +955,13 @@
                     </div>
                     <h2>What I Learned</h2>
                     <p>
-                        Competitive NLP on scientific documents is less a modeling problem than a normalization problem. The biggest leaderboard gains came not from better extraction but from better alignment - making sure predicted values matched the exact ontology strings the scoring function expected.
+                        Competitive NLP on scientific documents is less a modeling problem than a normalization problem. The biggest leaderboard gains came not from better extraction but from better alignment, making sure predicted values matched the exact ontology strings the scoring function expected.
                     </p>
                     <p>
                         When domain APIs provide ground truth, the pipeline should treat them as locks, not suggestions. The costliest mistake was letting a model overwrite values that an authoritative source had already gotten right.
                     </p>
                     <p>
-                        Finally: benchmark against prior art before building. The solution space for scientific entity extraction already existed - I just found it too late.
+                        Finally: benchmark against prior art before building. The solution space for scientific entity extraction already existed, I just found it too late.
                     </p>
                 </div>
             </div>
