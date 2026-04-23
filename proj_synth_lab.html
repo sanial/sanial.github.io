@@ -869,37 +869,66 @@
                     <div class="sl-card-icon sl-card-icon-solution">
                         <i class="ri-lightbulb-flash-fill"></i>
                     </div>
-                    <h2>The Solution</h2>
+                    <h2>The Architecture</h2>
                     <p>
-                        Synth Lab is an application with an <span class="sl-highlight">AI agent pipeline</span> built on the Google Agent
-                        Development Kit that parses arXiv papers end-to-end and synthesises their architecture into
-                        interactive, hierarchical diagrams — turning static research into explorable technical synthesis, meta and comparative analysis.
-
+                        Built under a 10-day competition deadline, the backend was intentionally kept thin. The Express server acts as a secure gateway between the frontend and external services, keeping the Gemini API key off the client, proxying arXiv searches and PDF fetches to avoid browser CORS issues, and shaping prompts before sending them to Gemini. The frontend owns everything else: user workflow, session state, and all rendering decisions.
                     </p>
-                    <ul class="sl-solution-list">
-                        <li>Search a topic and get the latest research papers pulled from arXiv api; 
-                            the Gemini agent autonomously fetches and parses the full paper text.</li>
-                        <li>Agent extracts structural components, methodology steps, and relationships via LLM reasoning.</li>
-                        <li>Renders live, interactive hierarchical charts in React.js, d3.js, and mermaid.js.</li>
-                        <li>Deployed on Google Cloud Run via Docker for scalable, low-latency access from anywhere.</li>
-                        <li>Full TypeScript + Node.js back-end with type-safe API integration between the agent and front-end.</li>
-                        <li>The application operates in 4 tabs:</li>
-                        <li class="sl-subtab"><span class="sl-highlight">Technical Synthesis</span> — 1 or more research papers are synthesised into a Mermaid.js Flow Mode chart and a Final Chart, providing a master architectural diagram that consolidates the entire paper into a high-level system overview suitable for research planning and experiment design. Flow Mode lets users visually "unpack" complex research steps, with Sub-diagrams available to drill deeper into specific technical modules.</li>
-                        <li class="sl-subtab"><span class="sl-highlight">Research Agent</span> — Provides further textual analysis and subgraphs for deeper topic understanding.</li>
-                        <li class="sl-subtab"><span class="sl-highlight">Deep Dive</span> — A multimodal view that interleaves D3.js lexical Bubble Maps, providing a meta-analysis of the paper's weight by quantifying word density and thematic importance visually.</li>
-                        <li class="sl-subtab"><span class="sl-highlight">Conceptual Dive</span> — Interleaved charts rendered by an agent that breaks down concepts across multiple research papers, delivering a topic-by-topic comparative analysis.</li>
-                    </ul>
+                    <p>
+                        The core data flow is: arXiv search query -> backend proxy normalizes the Atom feed into paper objects -> selected papers sent to Gemini for analysis -> structured JSON returned -> React renders the result across four tabs. Those four tabs are not four separate products. They are four projections of the same underlying paper analysis pipeline, each giving the user a different lens over the same research corpus.
+                    </p>
+                    <p>
+                        The backend makes three distinct Gemini calls. Conceptual Dive runs a two-pass pipeline: the first call analyzes and compares the paper contents, and the second converts that analysis into structured Mermaid diagram JSON. The third call is separate, handling audio narration generated for the Research Agent tab via Gemini's TTS capability. The application is deployed on Google Cloud Run via Docker, with Vite middleware handling development serving and static file serving in production.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- ════════════════════════════════════
-             FUTURE
+             KNOWN LIMITATIONS
         ════════════════════════════════════ -->
         <div class="sl-connector reveal"></div>
         <section class="sl-section reveal">
             <p class="sl-section-heading">
-                <i class="ri-rocket-line"></i> Future
+                <i class="ri-alert-line"></i> Known Limitations
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">03</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-problem">
+                        <i class="ri-alert-fill"></i>
+                    </div>
+                    <h2>Known Limitations</h2>
+                    <p>
+                        Synth Lab shipped as a competition entry. Using it in production revealed four specific architectural gaps worth being honest about.
+                    </p>
+                    <ul class="sl-solution-list">
+                        <li>
+                            Conceptual Dive is slow. Because Gemini analyzes paper content and generates diagrams in the same sequential pipeline, response times grow significantly with multiple papers. The fix is splitting the two passes: generating and caching the raw analysis first, then generating diagrams from that stored output in a separate step so repeated requests do not re-run expensive inference.
+                        </li>
+                        <li>
+                            PDF fetches are never cached. Every request re-downloads the same PDFs from arXiv, adding unnecessary latency and cost at scale. A persistent storage layer in v2 addresses this by storing fetched PDFs on first access and serving them locally on subsequent requests.
+                        </li>
+                        <li>
+                            Mermaid diagram generation breaks on complex papers. LLM-generated Mermaid syntax is fragile and long or dense papers produce diagrams that exceed what the renderer handles gracefully. There is no validation or retry logic when syntax errors occur and the error surfaces directly to the user with no fallback. A structured output layer with schema enforcement and fallback parsing would fix this.
+                        </li>
+                        <li>
+                            The streaming UI is simulated. The animated output feels like token-by-token generation but is actually batched. The backend returns a full Gemini response and the client incrementally renders it. It works, but it is a UI approximation of a real capability. 
+                        </li>
+                    </ul>
+                    <p>
+                        These four limitations are the direct motivation for v2.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════
+             WHAT'S NEXT
+        ════════════════════════════════════ -->
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-rocket-line"></i> What's Next
             </p>
             <div class="glass sl-text-card">
                 <span class="sl-card-num">04</span>
@@ -907,20 +936,25 @@
                     <div class="sl-card-icon sl-card-icon-solution">
                         <i class="ri-rocket-fill"></i>
                     </div>
-                    <h2>Future</h2>
+                    <h2>What's Next</h2>
                     <p>
-                        Next milestones focus on scaling the agent workflow, improving synthesis quality,
-                        and broadening visualization output formats so researchers can move from reading
-                        to structured understanding even faster.
+                        The known limitations in v1 are the roadmap for v2, not an afterthought.
                     </p>
-                    <ul class="sl-solution-list">
-                        <li>Search for particular papers and uploading your own</li>
-                        <li>Frontier research paper comparative analysis to map overlaps and differences in the research field itself</li>
-                        <li>Higher-fidelity and faster extraction for syntax, equations, module dependencies, and evaluation pipelines.</li>
-                        <li>Deep dive includes visualizations of how topics interrelate with citation structure</li>
-                        <li>Export pathways for diagrams and structured summaries into shareable research artifacts.</li>
-                        <li>Even more ambitions? Agent provides future experimental design suggestions</li>
-                    </ul>
+                    <p>
+                        The two-pass Conceptual Dive pipeline needs to be split into stages. Raw analysis would be generated and stored first, then diagrams generated from that cached output separately. That eliminates redundant inference on repeated requests and makes the pipeline easier to debug.
+                    </p>
+                    <p>
+                        PDF fetches need a persistent caching layer. The current architecture re-downloads the same files on every request. Storing fetched PDFs on first access and serving them locally afterward would significantly reduce latency and external API dependency.
+                    </p>
+                    <p>
+                        Mermaid generation needs structured output validation and retry logic so syntax errors do not surface raw to the user. Schema enforcement on the Gemini response, with a fallback rendering path, would make diagram generation reliable on complex papers.
+                    </p>
+                    <p>
+                        Real server-sent event streaming from Gemini through the backend would replace the current simulated streaming UI. The capability exists in Gemini's API and the frontend is already structured to handle incremental output.
+                    </p>
+                    <p>
+                        Finally, a persistent database would let users save diagrams, searches, and analyses and return to them across sessions, which is the feature gap that matters most for actual research workflows.
+                    </p>
                 </div>
             </div>
         </section>
