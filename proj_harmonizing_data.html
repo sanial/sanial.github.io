@@ -860,7 +860,7 @@
         <div class="sl-connector reveal"></div>
         <section class="sl-section reveal">
             <p class="sl-section-heading">
-                <i class="ri-lightbulb-flash-line"></i> Solution
+                <i class="ri-lightbulb-flash-line"></i> Pipeline
             </p>
             <div class="glass sl-text-card">
                 <span class="sl-card-num">02</span>
@@ -868,19 +868,50 @@
                     <div class="sl-card-icon sl-card-icon-solution">
                         <i class="ri-lightbulb-flash-fill"></i>
                     </div>
-                    <h2>The Solution</h2>
+                    <h2>The Pipeline</h2>
                     <p>
-                        I built a <span class="sl-highlight">hybrid metadata extraction pipeline</span> designed around the competition's
-                        training data, SDRF template, and scoring function. The workflow enriches publication context, extracts candidate
-                        entities, links them to ontology-backed labels, and emits structured CSV outputs ready for local scoring and Kaggle submission.
+                        Notebook 16 is built around a <span class="sl-highlight">hierarchy of trust</span> - each stage only runs if the previous one
+                        could not confidently fill a column. When a test paper came in, the pipeline worked in this order:
                     </p>
                     <ul class="sl-solution-list">
-                        <li>Used PRIDE-linked metadata and publication text preprocessing to create stronger context before extraction.</li>
-                        <li>Applied PubMedBert-driven NLP components and NER to detect domain-specific entities inside proteomics papers.</li>
-                        <li>Performed ontology and term normalization with OLS-style entity linking so predicted labels better matched SDRF expectations.</li>
-                        <li>Generated predictions across 77 metadata columns, aligned to the sample submission schema used by the competition.</li>
-                        <li>Kept the workflow reproducible with scripts for train, infer, and score so experiments could be iterated quickly.</li>
+                        <li>Training SDRF overlap - ground truth values from the competition's own training set take absolute priority.</li>
+                        <li>PRIDE API -> OLS normalization - authoritative biological metadata fetched directly from PRIDE, normalized against the Ontology Lookup Service. An LRU cache ensures each term is only queried once.</li>
+                        <li>PX XML backup -> OLS normalized - when PRIDE API returned nothing, the project's XML title and description were used as a fallback source.</li>
+                        <li>Regex extraction -> OLS normalized - pattern matching for tissues and instruments when structured sources failed.</li>
+                        <li>Filename parsing - raw mass spec filenames often encode methodology directly (instrument settings, fractionation, sample IDs). For the 5 test PXDs with no paper text, this was sometimes the only signal available.</li>
+                        <li>Conservative majority fallback - only triggered when a value appeared in &gt;80% of files for a given experiment, and excluded experiment-specific columns where majority logic does not apply.</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="sl-connector reveal"></div>
+        <section class="sl-section reveal">
+            <p class="sl-section-heading">
+                <i class="ri-close-circle-line"></i> What Didn't Work
+            </p>
+            <div class="glass sl-text-card">
+                <span class="sl-card-num">03</span>
+                <div class="sl-card-body">
+                    <div class="sl-card-icon sl-card-icon-problem">
+                        <i class="ri-close-circle-fill"></i>
+                    </div>
+                    <h2>What Didn't Work</h2>
+                    <p>
+                        The highest-scoring notebook was not the most sophisticated - it was the one that stopped trying to be clever and deferred to authoritative sources instead.
+                    </p>
+                    <p>
+                        Early iterations used hand-coded ontology dictionaries to normalize extracted values. Notebook 11 represented the most complete version of this approach - exhaustive lookup tables mapping tissue names, instruments, and reagents to their SDRF canonical strings across 65 tissue entries, 30 instrument entries, and 26 cleavage agent synonyms. It scored reasonably well, but every normalization decision was a manual guess about what the competition expected. The dictionary could not handle format variants automatically - "Blood Serum", "blood serum", and "EDTA plasma" all needed to resolve to the same UBERON node (NT=blood serum;AC=UBERON:0001977), and any miss scored zero for that column.
+                    </p>
+                    <p>
+                        The middle notebooks introduced PubMedBERT for entity extraction, expecting a transformer trained on biomedical text to outperform regex. It did not. BERT consistently overwrote values that the PRIDE API had already gotten right, replacing authoritative metadata with confident wrong guesses. A model that does not know what it does not know is worse than no model at all in a schema-strict scoring environment.
+                    </p>
+                    <p>
+                        Notebook 16 dropped BERT entirely and replaced the static dictionaries with live OLS4 API queries - asking EBI's actual ontology lookup service to resolve terms at runtime. Since the competition scoring was built on the same ontologies OLS serves, alignment improved immediately. The pipeline stopped generating answers and started retrieving them.
+                    </p>
+                    <p>
+                        One thing I'd do differently from the start: study prior winning solutions earlier. The Coleridge Initiative competition tackled similar scientific entity extraction problems - those pipelines would have pointed toward authoritative source alignment weeks before I found it through trial and error.
+                    </p>
                 </div>
             </div>
         </section>
@@ -891,7 +922,7 @@
                 <i class="ri-bar-chart-grouped-line"></i> Evaluation
             </p>
             <div class="glass sl-text-card">
-                <span class="sl-card-num">03</span>
+                <span class="sl-card-num">04</span>
                 <div class="sl-card-body">
                     <div class="sl-card-icon sl-card-icon-solution">
                         <i class="ri-line-chart-fill"></i>
@@ -917,23 +948,21 @@
                 <i class="ri-book-open-line"></i> What I Learned
             </p>
             <div class="glass sl-text-card">
-                <span class="sl-card-num">04</span>
+                <span class="sl-card-num">05</span>
                 <div class="sl-card-body">
                     <div class="sl-card-icon sl-card-icon-solution">
                         <i class="ri-book-2-fill"></i>
                     </div>
                     <h2>What I Learned</h2>
                     <p>
-                        This project made it clear that competitive NLP on scientific documents depends as much on
-                        schema discipline and normalization as it does on the model itself. Getting useful leaderboard
-                        movement required tighter iteration between extraction, validation, and error analysis.
+                        Competitive NLP on scientific documents is less a modeling problem than a normalization problem. The biggest leaderboard gains came not from better extraction but from better alignment - making sure predicted values matched the exact ontology strings the scoring function expected.
                     </p>
-                    <ul class="sl-solution-list">
-                        <li>Leaderboard metrics were heavily shaped by normalization quality, not just raw entity detection.</li>
-                        <li>Scientific metadata extraction works better when domain APIs and ontologies are used as structured priors.</li>
-                        <li>Local scoring was essential for debugging because column-level failures were often hidden in aggregate output.</li>
-                        <li>Hybrid pipelines were more practical here than relying on a single model stage to solve every extraction problem.</li>
-                    </ul>
+                    <p>
+                        When domain APIs provide ground truth, the pipeline should treat them as locks, not suggestions. The costliest mistake was letting a model overwrite values that an authoritative source had already gotten right.
+                    </p>
+                    <p>
+                        Finally: benchmark against prior art before building. The solution space for scientific entity extraction already existed - I just found it too late.
+                    </p>
                 </div>
             </div>
         </section>
