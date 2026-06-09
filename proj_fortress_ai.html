@@ -675,8 +675,8 @@
                 </span>
                 <h1 class="sl-hero-title">Fortress AI</h1>
                 <p class="sl-hero-subtitle">
-                    A multi-agent legal audit system built to run on AMD MI300X GPU clusters.
-                    Fortress AI is a secure "Command Center" for complex legal document analysis —
+                    A full stack multi-agent legal audit system built to run on AMD MI300X GPU clusters.
+                    Fortress AI is a secure "Command Center" for complex legal document analysis
                     combining <strong>LangGraph</strong> agent orchestration, ROCm-accelerated
                     <strong>vLLM (Qwen)</strong> inference, semantic vector search via
                     <strong>Qdrant</strong>, and a <strong>Next.js</strong> front-end to
@@ -770,13 +770,13 @@
                         Legal document review is one of the most expensive and bottlenecked workflows in any organization.
                         Contracts, compliance filings, and audit trails run into hundreds of pages. A single legal professional
                         can spend days manually cross-referencing <span class="sl-highlight">clauses, obligations, and risk flags</span>
-                        across a document corpus — work that is repetitive, error-prone, and does not scale.
+                        across a document corpus, work that is repetitive, error-prone, and does not scale.
                     </p>
                     <p>
                         Existing AI legal tools are single-pass summarizers. They read a document and return a flat summary.
                         They cannot reason across <span class="sl-highlight">multiple documents simultaneously</span>, maintain
                         context between analysis stages, or run parallel specialized agents that each focus on a distinct
-                        legal dimension — liability, compliance, IP, or jurisdiction — and then synthesize their findings.
+                        legal dimension, liability, compliance, IP, or jurisdiction and then synthesize their findings.
                     </p>
                     <p>
                         The deeper problem was infrastructure: running capable open-weight models locally for sensitive legal
@@ -807,8 +807,8 @@
                         Fortress AI is built as a <span class="sl-highlight">LangGraph</span> multi-agent graph where each node
                         is a specialized legal reasoning agent. Documents are ingested through a FastAPI backend, chunked, and
                         embedded into a <span class="sl-highlight">Qdrant</span> vector database for semantic retrieval. When
-                        an audit is triggered, the orchestrator dispatches parallel agents — each targeting a specific legal
-                        dimension — that retrieve relevant chunks, run inference via
+                        an audit is triggered, the orchestrator dispatches parallel agents, each targeting a specific legal
+                        dimension, that retrieve relevant chunks, run inference via
                         <span class="sl-highlight">vLLM serving Qwen</span> on ROCm-accelerated MI300X hardware, and return
                         structured findings.
                     </p>
@@ -866,7 +866,7 @@
                             with no incremental feedback.
                         </li>
                         <li>
-                            The vLLM server is stateless between requests — there is no KV-cache reuse across audit runs on
+                            The vLLM server is stateless between requests, there is no KV-cache reuse across audit runs on
                             the same document set, which means repeated queries over the same corpus re-run full prefill
                             passes.
                         </li>
