@@ -295,6 +295,11 @@
   } */
 
 
+  .loc0 {
+    position: absolute;
+    top: 40%;
+    left: 22%;
+  }
   .loc1 {
     /* display: flex;
     align-items: center;
@@ -302,17 +307,33 @@
   
     position: absolute;
     top: 35%;
-    left: 32%;
+    left: 35%;
   }
   .loc2 {
   position: absolute;
   top: 50%;
-  left: 46%;
+  left: 49%;
   }
   .loc3 {
     position: absolute;
     top: 40%;
-    left: 64%;
+    left: 67%;
+  }
+  .item-6 .loc0 {
+    top: 44%;
+    left: 20%;
+  }
+  .item-6 .loc1 {
+    top: 38%;
+    left: 36%;
+  }
+  .item-6 .loc2 {
+    top: 54%;
+    left: 53%;
+  }
+  .item-6 .loc3 {
+    top: 46%;
+    left: 71%;
   }
   .ln1 {
     /* display: none; */
