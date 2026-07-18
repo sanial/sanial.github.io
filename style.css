@@ -320,19 +320,20 @@
     left: 67%;
   }
   .item-6 .loc0 {
-    top: 44%;
+      top: 44%;
     left: 20%;
   }
   .item-6 .loc1 {
-    top: 38%;
+      top: 38%;
     left: 36%;
+    gap: 0.35rem;
   }
   .item-6 .loc2 {
-    top: 54%;
+      top: 54%;
     left: 53%;
   }
   .item-6 .loc3 {
-    top: 46%;
+      top: 46%;
     left: 71%;
   }
   .item-6 .loc0,
@@ -348,20 +349,41 @@
     position: static;
     width: 1px;
     background-color: #bfbfbf;
-    margin-top: 0.2rem;
+    margin-top: 9rem;
   }
   .item-6 .line {
-    height: 165px;
+    height: 410px;
+  }
+  .item-6 .loc1 .line {
+    height: 235px;
+    margin-top: 0;
+    transform: translateY(42px);
+  }
+  .item-6 .loc1 .pulse-button {
+    margin-top: 0;
+    position: relative;
+    top: 42px;
   }
   .item-6 .line_2 {
-    height: 130px;
+    height: 330px;
+  }
+  .item-6 .pulse-button,
+  .item-6 .institution-stack,
+  .item-6 .word,
+  .item-6 .institution-logo,
+  .item-6 .institution-label {
+    position: relative;
+    z-index: 3;
   }
   .item-6 .word {
-    position: static;
+    position: relative;
     top: auto;
     left: auto;
     transform: none;
-    margin-top: 0.2rem;
+    margin-top: 0.1rem;
+  }
+  .item-6 .loc1 .word {
+    margin-top: 0;
   }
   .ln1 {
     /* display: none; */
@@ -550,7 +572,7 @@
   gap: 0.2rem;
   position: static;
   transform: none;
-  margin-top: 0.2rem;
+  margin-top: -17rem;
 }
 .item-6 .institution-logo {
   display: block;
