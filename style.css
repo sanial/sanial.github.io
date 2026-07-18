@@ -335,6 +335,23 @@
     top: 46%;
     left: 71%;
   }
+  .item-6 .line,
+  .item-6 .line_2 {
+    top: 95px;
+    left: 50%;
+    width: 1px;
+    transform: translateX(-50%);
+    background-color: #bfbfbf;
+  }
+  .item-6 .line {
+    height: 165px;
+  }
+  .item-6 .line_2 {
+    height: 130px;
+  }
+  .item-6 .loc1 .word {
+    top: 235px;
+  }
   .ln1 {
     /* display: none; */
     position: absolute;
@@ -517,6 +534,7 @@
 }
 .item-6 .institution-stack {
   position: absolute;
+  top: 235px;
   left: 50%;
   display: flex;
   flex-direction: column;
@@ -524,12 +542,8 @@
   gap: 0.2rem;
   transform: translate(-50%, -50%);
 }
-.item-6 .loc0 .institution-stack,
-.item-6 .loc3 .institution-stack {
-  top: 980%;
-}
 .item-6 .loc2 .institution-stack {
-  top: 800%;
+  top: 200px;
 }
 .item-6 .institution-logo {
   display: block;
