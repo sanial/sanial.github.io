@@ -349,7 +349,7 @@
     position: static;
     width: 1px;
     background-color: #bfbfbf;
-    margin-top: 9rem;
+    margin-top: 14rem;
   }
   .item-6 .line {
     height: 540px;
@@ -357,7 +357,7 @@
   .item-6 .loc1 .line {
     height: 360px;
     margin-top: 0;
-    transform: translateY(42px);
+    transform: translateY(120px);
   }
   .item-6 .loc1 .pulse-button {
     margin-top: 0;
